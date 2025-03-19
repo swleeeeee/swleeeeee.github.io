@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>TPMS simulation using Dynamic/Explicit | Crafeeee&#39;s</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <div id="root">
+      <header>
+  <div id="brand">
+    <a class="icon-link" href="https://swleeeeee.github.io/">
+      <img
+        class="icon"
+        src="/images/brandIcon.svg"
+      />
+    </a>
+    <div class="text">
+      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <h3>Gains can&#39;t stop</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+      <div id="content">
+        
+  <main>
+    <article>
+      <h1 class="title">TPMS simulation using Dynamic/Explicit</h1>
+      <h3 class="subtitle">investigate its size effect with respect to shell model</h3>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2025-03-13</time>
+    <span>in</span>
+    
+      <a href="/categories/research-tpms">Research-TPMS</a>
+  </strong>
+  <span> • 162 words</span>
+  
+  
+    <div>
+      <span>Tags:</span>
+      
+        <a href="/tags/abaqus">abaqus</a>, 
+        <a href="/tags/dynamic">dynamic</a>, 
+        <a href="/tags/size-effect">size effect</a>, 
+        <a href="/tags/shell">shell</a>
+    </div>
+  
+</div>
+
+      <div class="content"><h1 id="1initial-simulation-settings">1.Initial simulation settings</h1>
+<p><img src="../pic/25-3-13-1.jpg" alt=""></p>
+<p>its results down here</p>
+<p><img src="../pic/25-3-13-3.jpg" alt=""></p>
+<p>still got some questions: why they got zero Poisson&rsquo;s Ratio instead of Postive Poisson&rsquo;s Ratio</p>
+<p>Despite its wrong density and step period ,the results can be partly resonable according to its consistent settings (regardless of ALLKE/ALLIE&gt;5%).</p>
+<h1 id="1rectified-simulation-settings">1.Rectified simulation settings</h1>
+<p><img src="../pic/25-3-13-2.jpg" alt=""></p>
+<p>As for its tiny time period, it&rsquo;s according to</p>
+<h2 id="1why-dont-we-do-that">1.Why don&rsquo;t we do that:</h2>
+<p>If consistnet with experimental time period, its total time increments will a be mega number, for its critical time increment is tiny near  micron-scale, it cost a lot even the collapse of the sys.</p>
+<p>the critical time increment is defined by</p>
+<p>delta_t&lt;=L/C</p>
+<p>L is the minimum feature length of the grid,
+C is the wave velocity (usually the speed of sound or stress wave propagation of a material).</p>
+<h2 id="2why-we-do-that">2.Why we do that:</h2>
+<p>The static/standard can&rsquo;t deal with such complex models, and if ALLKE/ALLIE&lt;5%, it can be regarded as Quasi-static process.</p>
+<h2 id="静力学显式隐式动力学的核心区别">静力学、显式隐式动力学的核心区别</h2>
+<ol>
+<li>是否包含惯性项</li>
+</ol>
+<ul>
+<li>静力学：不考虑惯性（\mathbf{M}\ddot{\mathbf{u}}=0)，只需静平衡</li>
+<li>动力学：保留惯性项，需要时间积分（\mathbf{M}\ddot{\mathbf{u}}\neq 0)。</li>
+</ul>
+<ol start="2">
+<li>求解策略</li>
+</ol>
+<ul>
+<li>基于数值时间积分:隐式动力学：依赖迭代求解，通常稳定性更好，可使用大时间步；显式动力学：无需迭代求解全局方程，但时间步长小，对波传播、严重失效等问题更高效。</li>
+<li>基于上一步来求解下一步:静力学：不关心随时间演变的动态过程，每个时间增量达到系统平衡</li>
+</ul>
+<ol start="3">
+<li>适用场景
+<ul>
+<li>静力学：载荷缓慢施加、惯性可忽略的场合；</li>
+<li>隐式动力学：中低速动态或准静态过程；</li>
+<li>显式动力学：高速冲击、碰撞、爆炸、金属成形等瞬态剧烈动态过程。</li>
+</ul>
+</li>
+</ol>
+</div>
+    </article>
+  </main>
+
+      </div>
+      <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/swleeeeee">GitHub</a>
+      
+         | 
+        <a href="https://space.bilibili.com/115155048">Bilibili</a>
+      
+         | 
+        <a href="https://blog.csdn.net/m0_59162304?spm=1000.2115.3001.5343">CSDN</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2025
+    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    x1955005005@gmail.com
+  </p>
+</footer>
+
+    </div>
+  </body>
+</html>

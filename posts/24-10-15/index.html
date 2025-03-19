@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>Meshing tricks for TPMS | Crafeeee&#39;s</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <div id="root">
+      <header>
+  <div id="brand">
+    <a class="icon-link" href="https://swleeeeee.github.io/">
+      <img
+        class="icon"
+        src="/images/brandIcon.svg"
+      />
+    </a>
+    <div class="text">
+      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <h3>Gains can&#39;t stop</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+      <div id="content">
+        
+  <main>
+    <article>
+      <h1 class="title">Meshing tricks for TPMS</h1>
+      <h3 class="subtitle">Hypermesh&amp;Magics Co-preprocessing</h3>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2024-10-15</time>
+    <span>in</span>
+    
+      <a href="/categories/research-tpms">Research-TPMS</a>
+  </strong>
+  <span> • 26 words</span>
+  
+  
+    <div>
+      <span>Tags:</span>
+      
+        <a href="/tags/hypermesh">Hypermesh</a>, 
+        <a href="/tags/magics">Magics</a>, 
+        <a href="/tags/meshing">meshing</a>, 
+        <a href="/tags/pre-processing">pre-processing</a>
+    </div>
+  
+</div>
+
+      <div class="content"><p>要处理类似极小曲面（TPMS）这样的异形曲面，可能会产生一些网格划分上的问题，例如，曲面生成的如果不够光滑，在划分网格时会产生小细线、小面片，通常情况下网格质量不会特别好。以下是我自己找到的一套处理方法，欢迎讨论、优化：</p>
+<h1 id="对异形曲面参数化建模时建立更光滑的曲面">对异形曲面参数化建模时，建立更光滑的曲面</h1>
+<p>例如我用mathematica建模，就是选取更多的PlotPoints</p>
+<h1 id="1使用magics进行三角面片简化细化光滑重画网格">1.使用Magics进行三角面片简化/细化光滑/重画网格</h1>
+<p>这一步使用的是软件里的功能先傻瓜操作，对曲面质量做一个初步的提升，如果曲面质量还可以可以忽略这一步（讲道理只要是专门处理stl的软件都会有这个功能也不一定要用magics）</p>
+<h1 id="2在hypermesh当中先根据导入的stl文件建立surface再对这个surface进行automesh操作初步得到网格如果发现质量好就可以直接导出">2.在hypermesh当中，先根据导入的stl文件建立surface，再对这个surface进行automesh操作，初步得到网格，如果发现质量好就可以直接导出</h1>
+<h1 id="3检查网格问题对存在问题进行修补删除">3.检查网格问题，对存在问题进行修补删除</h1>
+<p>注意网格划分时候的边界情况，如果有很多小细线，需要在quick edit&ndash;toogle lines进行处理；</p>
+<h3 id="如果遇到质量很差的多小面片">如果遇到质量很差的多小面片：</h3>
+<p>————————————————</p>
+<p><strong>方案一</strong>：检查网格的质量，使用check elem&ndash;点选各个检查特征值&ndash;save failed&ndash;delete&ndash;retrieve&ndash;delete entity
+方法参考<a href="https://www.bilibili.com/video/BV1Mh4y117nQ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ed4355279e79869f34ed924af694b1d">https://www.bilibili.com/video/BV1Mh4y117nQ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ed4355279e79869f34ed924af694b1d</a></p>
+<p><strong>方案二</strong>：replace合并节点</p>
+<p><strong>方案三</strong>：直接选中小面片delete</p>
+<p><strong>方案四</strong>：局部重新划分</p>
+<p><strong>方案五</strong>：edit elem&ndash;create 修补网格，之后重新划分</p>
+<p>以下是实操视频，由于第一遍就已经产生质量不错的网格，所以只简单展示了一下方案一
+<a href="https://www.bilibili.com/video/BV1niCUYREi2/?vd_source=6ed4355279e79869f34ed924af694b1d">https://www.bilibili.com/video/BV1niCUYREi2/?vd_source=6ed4355279e79869f34ed924af694b1d</a></p>
+<p>————————————————</p>
+</div>
+    </article>
+  </main>
+
+      </div>
+      <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/swleeeeee">GitHub</a>
+      
+         | 
+        <a href="https://space.bilibili.com/115155048">Bilibili</a>
+      
+         | 
+        <a href="https://blog.csdn.net/m0_59162304?spm=1000.2115.3001.5343">CSDN</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2025
+    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    x1955005005@gmail.com
+  </p>
+</footer>
+
+    </div>
+  </body>
+</html>

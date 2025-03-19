@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>TPMS periodic array generation method using MATLAB | Crafeeee&#39;s</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <div id="root">
+      <header>
+  <div id="brand">
+    <a class="icon-link" href="https://swleeeeee.github.io/">
+      <img
+        class="icon"
+        src="/images/brandIcon.svg"
+      />
+    </a>
+    <div class="text">
+      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <h3>Gains can&#39;t stop</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+      <div id="content">
+        
+  <main>
+    <article>
+      <h1 class="title">TPMS periodic array generation method using MATLAB</h1>
+      <h3 class="subtitle">to generate stl files of shell and sandwich structure with certain thickness</h3>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2025-03-04</time>
+    <span>in</span>
+    
+      <a href="/categories/research-tpms">Research-TPMS</a>
+  </strong>
+  <span> • 879 words</span>
+  
+  
+    <div>
+      <span>Tags:</span>
+      
+        <a href="/tags/matlab">MATLAB</a>, 
+        <a href="/tags/code">code</a>, 
+        <a href="/tags/modeling">modeling</a>
+    </div>
+  
+</div>
+
+      <div class="content"><h1 id="1solid-shell-generation">1.Solid Shell generation</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-MATLAB" data-lang="MATLAB"><span style="display:flex;"><span>clear all; 
+</span></span><span style="display:flex;"><span>close all; 
+</span></span><span style="display:flex;"><span>clc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Derek&#39;s User Design Inputs</span>
+</span></span><span style="display:flex;"><span>cs = <span style="color:#ae81ff">10</span>; <span style="color:#75715e">% TPMS Cell Size in mm (Dimensional Length of a Unit Cell)</span>
+</span></span><span style="display:flex;"><span>cd_w = <span style="color:#ae81ff">8</span>; <span style="color:#75715e">% Cell Density through Build Width (Number of Cells through the Build Width)</span>
+</span></span><span style="display:flex;"><span>cd_h = <span style="color:#ae81ff">8</span>; <span style="color:#75715e">% Cell Density through Build Height (Number of Cells through the Build Height)</span>
+</span></span><span style="display:flex;"><span>t = <span style="color:#ae81ff">1</span>; <span style="color:#75715e">% TPMS Surface Thickness in mm (Sheet Thickness of the Generated Lattice)</span>
+</span></span><span style="display:flex;"><span>f = <span style="color:#ae81ff">20</span>; <span style="color:#75715e">% Cell Fineness Parameter (Number of Divisions within a Unit Cell.% Calculations</span>
+</span></span><span style="display:flex;"><span>hs = cs<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Half Cell Size in mm</span>
+</span></span><span style="display:flex;"><span>w = cs<span style="color:#f92672">*</span>cd_w; <span style="color:#75715e">% Overall Build Width in mm</span>
+</span></span><span style="display:flex;"><span>hw = w<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Build Half-Width in mm</span>
+</span></span><span style="display:flex;"><span>h = cs<span style="color:#f92672">*</span>cd_h; <span style="color:#75715e">% Overall Build Height in mm</span>
+</span></span><span style="display:flex;"><span>ht = t<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Half Thickness of Lattice Sheet</span>
+</span></span><span style="display:flex;"><span>m = pi<span style="color:#f92672">/</span>hs; <span style="color:#75715e">% Periodicity Multiplier</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Range</span>
+</span></span><span style="display:flex;"><span>xl = <span style="color:#f92672">-</span>hw; xu = hw;
+</span></span><span style="display:flex;"><span>yl = <span style="color:#f92672">-</span>hw; yu = hw;
+</span></span><span style="display:flex;"><span>zl = <span style="color:#f92672">-</span>hw; zu = hw;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Range to Grid</span>
+</span></span><span style="display:flex;"><span>x = [xl:cs<span style="color:#f92672">/</span>f:xu];
+</span></span><span style="display:flex;"><span>y = [yl:cs<span style="color:#f92672">/</span>f:yu];
+</span></span><span style="display:flex;"><span>z = [zl:cs<span style="color:#f92672">/</span>f:zu];
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Grid</span>
+</span></span><span style="display:flex;"><span>[X,Y,Z] = meshgrid(x,y,z);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Primitive Surface Function</span>
+</span></span><span style="display:flex;"><span>PMS = @(x,y,z) cos(m<span style="color:#f92672">*</span>x) <span style="color:#f92672">+</span> cos(m<span style="color:#f92672">*</span>y) <span style="color:#f92672">+</span> cos(m<span style="color:#f92672">*</span>z); <span style="color:#75715e">% Trigonometric Representation</span>
+</span></span><span style="display:flex;"><span>F = PMS(X,Y,Z); <span style="color:#75715e">% Function Evaluation</span>
+</span></span><span style="display:flex;"><span>stlname = [<span style="color:#e6db74">&#39;P_build.stl&#39;</span>]; <span style="color:#75715e">% File name</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Diamond Surface Function</span>
+</span></span><span style="display:flex;"><span>DMS = @(x,y,z) sin(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>sin(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>sin(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> sin(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>cos(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>sin(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> cos(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>sin(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>); <span style="color:#75715e">% Trigonometric</span>
+</span></span><span style="display:flex;"><span>Representation
+</span></span><span style="display:flex;"><span>F = DMS(X,Y,Z); <span style="color:#75715e">% Function Evaluation</span>
+</span></span><span style="display:flex;"><span>stlname = [<span style="color:#e6db74">&#39;D_build.stl&#39;</span>]; <span style="color:#75715e">% File name</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% I-WP Surface Function</span>
+</span></span><span style="display:flex;"><span>IMS = @(x,y,z) <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(cos(m<span style="color:#f92672">*</span>x)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>y) <span style="color:#f92672">+</span> cos(m<span style="color:#f92672">*</span>y)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>z) <span style="color:#f92672">+</span> cos(m<span style="color:#f92672">*</span>z)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>x)) <span style="color:#f92672">-</span>
+</span></span><span style="display:flex;"><span>cos(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>m<span style="color:#f92672">*</span>x)<span style="color:#f92672">.*</span>cos(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>m<span style="color:#f92672">*</span>y)<span style="color:#f92672">.*</span>cos(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>m<span style="color:#f92672">*</span>z); <span style="color:#75715e">% Trigonometric Representation</span>
+</span></span><span style="display:flex;"><span>F = IMS(X,Y,Z); <span style="color:#75715e">% Function Evaluation</span>
+</span></span><span style="display:flex;"><span>stlname = [<span style="color:#e6db74">&#39;I_build.stl&#39;</span>]; <span style="color:#75715e">% File name</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Gyroid Surface Function</span>
+</span></span><span style="display:flex;"><span>GMS = @(x,y,z) sin(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> sin(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> sin(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Trigonometric Representation</span>
+</span></span><span style="display:flex;"><span>F = GMS(X,Y,Z); <span style="color:#75715e">% Function Evaluation</span>
+</span></span><span style="display:flex;"><span>stlname = [<span style="color:#e6db74">&#39;G_build.stl&#39;</span>]; <span style="color:#75715e">% File name</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Generate neutral Surface based on Chosen TPMS Design</span>
+</span></span><span style="display:flex;"><span>Surf = isosurface(x,y,z,F,<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Create Offsets for Desired Thickness based on Surface Normals</span>
+</span></span><span style="display:flex;"><span>SNorms = isonormals(x,y,z,F,Surf.vertices); <span style="color:#75715e">% Surface Normals at Vertices</span>
+</span></span><span style="display:flex;"><span>SNunit = SNorms<span style="color:#f92672">./</span>vecnorm(SNorms,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>); <span style="color:#75715e">% Surface Unit Normals at Vertices</span>
+</span></span><span style="display:flex;"><span>OSoffset = Surf.vertices <span style="color:#f92672">+</span> ht<span style="color:#f92672">*</span>SNunit; <span style="color:#75715e">% Outer Surface Offset</span>
+</span></span><span style="display:flex;"><span>ISoffset = Surf.vertices <span style="color:#f92672">-</span> ht<span style="color:#f92672">*</span>SNunit; <span style="color:#75715e">% Inner Surface Offset</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Find Free Boundary Surfaces in order to Close Lattice Surface</span>
+</span></span><span style="display:flex;"><span>TRfb = triangulation([Surf.faces; Surf.faces <span style="color:#f92672">+</span> max(max(Surf.faces))],[ISoffset;
+</span></span><span style="display:flex;"><span>OSoffset]); <span style="color:#75715e">% Inner &amp; Outer Surface Triangulation</span>
+</span></span><span style="display:flex;"><span>FB = freeBoundary(TRfb); <span style="color:#75715e">% Surface Free Boundaries</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Enclose Openings Between Inner and Outer Surfaces</span>
+</span></span><span style="display:flex;"><span>FBtr = FB; <span style="color:#75715e">% Surface Free Boundary Index</span>
+</span></span><span style="display:flex;"><span>hFB = length(FB)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Half of the Free Boundary Index</span>
+</span></span><span style="display:flex;"><span>FBtr(<span style="color:#ae81ff">1</span>:hFB,<span style="color:#ae81ff">3</span>) = FB(hFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#66d9ef">end</span>,<span style="color:#ae81ff">1</span>); <span style="color:#75715e">% Inner Surface to Outer Surface Triangulation</span>
+</span></span><span style="display:flex;"><span>FBtr(hFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#66d9ef">end</span>,<span style="color:#ae81ff">3</span>) = FBtr(<span style="color:#ae81ff">1</span>:hFB,<span style="color:#ae81ff">2</span>); <span style="color:#75715e">% Outer Surface to Inner Surface Triangulation</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Combine Surfaces Arrays into Single Array for Triangulation</span>
+</span></span><span style="display:flex;"><span>sVerts = [ISoffset; OSoffset]; <span style="color:#75715e">% Inner and Outer Surface Vertices</span>
+</span></span><span style="display:flex;"><span>sFaces = [Surf.faces; Surf.faces <span style="color:#f92672">+</span> max(max(Surf.faces))]; <span style="color:#75715e">% Inner and Outer Surfaces Faces</span>
+</span></span><span style="display:flex;"><span>sFull = [sFaces; FBtr]; <span style="color:#75715e">% Add Boundaries</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Triangulation of Build for .stl Output</span>
+</span></span><span style="display:flex;"><span>TR = triangulation(sFull,sVerts);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stlwrite(TR,stlname);
+</span></span></code></pre></div><h1 id="2sandwich-shell-generation">2.Sandwich Shell generation</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-MATLAB" data-lang="MATLAB"><span style="display:flex;"><span>clear all; 
+</span></span><span style="display:flex;"><span>close all; 
+</span></span><span style="display:flex;"><span>clc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Derek&#39;s User Design Inputs</span>
+</span></span><span style="display:flex;"><span>cs = <span style="color:#ae81ff">10</span>; <span style="color:#75715e">% TPMS Cell Size in mm (Dimensional Length of a Unit Cell)</span>
+</span></span><span style="display:flex;"><span>cd_w = <span style="color:#ae81ff">8</span>; <span style="color:#75715e">% Cell Density through Build Width (Number of Cells through the Build Width)</span>
+</span></span><span style="display:flex;"><span>cd_h = <span style="color:#ae81ff">8</span>; <span style="color:#75715e">% Cell Density through Build Height (Number of Cells through the Build Height)</span>
+</span></span><span style="display:flex;"><span>t_tot = <span style="color:#ae81ff">2.6</span>; <span style="color:#75715e">% TPMS Surface Thickness in mm (Sheet Thickness of the Generated Lattice)</span>
+</span></span><span style="display:flex;"><span>t_core= <span style="color:#ae81ff">1</span> ;
+</span></span><span style="display:flex;"><span>f = <span style="color:#ae81ff">15</span>; <span style="color:#75715e">% Cell Fineness Parameter (Number of Divisions within a Unit Cell.% Calculations</span>
+</span></span><span style="display:flex;"><span>hs = cs<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Half Cell Size in mm</span>
+</span></span><span style="display:flex;"><span>w = cs<span style="color:#f92672">*</span>cd_w; <span style="color:#75715e">% Overall Build Width in mm</span>
+</span></span><span style="display:flex;"><span>hw = w<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Build Half-Width in mm</span>
+</span></span><span style="display:flex;"><span>h = cs<span style="color:#f92672">*</span>cd_h; <span style="color:#75715e">% Overall Build Height in mm</span>
+</span></span><span style="display:flex;"><span>ht_tot = t_tot<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#75715e">% Half Thickness of Lattice Sheet</span>
+</span></span><span style="display:flex;"><span>ht_core= t_core<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>m = pi<span style="color:#f92672">/</span>hs; <span style="color:#75715e">% Periodicity Multiplier</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Range</span>
+</span></span><span style="display:flex;"><span>xl = <span style="color:#f92672">-</span>hw; xu = hw;
+</span></span><span style="display:flex;"><span>yl = <span style="color:#f92672">-</span>hw; yu = hw;
+</span></span><span style="display:flex;"><span>zl = <span style="color:#f92672">-</span>hw; zu = hw;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Range to Grid</span>
+</span></span><span style="display:flex;"><span>x = [xl:cs<span style="color:#f92672">/</span>f:xu];
+</span></span><span style="display:flex;"><span>y = [yl:cs<span style="color:#f92672">/</span>f:yu];
+</span></span><span style="display:flex;"><span>z = [zl:cs<span style="color:#f92672">/</span>f:zu];
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Design Space Grid</span>
+</span></span><span style="display:flex;"><span>[X,Y,Z] = meshgrid(x,y,z);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Gyroid Surface Function</span>
+</span></span><span style="display:flex;"><span>GMS = @(x,y,z) sin(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> sin(m<span style="color:#f92672">*</span>y<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> sin(m<span style="color:#f92672">*</span>z<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.*</span>cos(m<span style="color:#f92672">*</span>x<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Trigonometric Representation</span>
+</span></span><span style="display:flex;"><span>F = GMS(X,Y,Z); <span style="color:#75715e">% Function Evaluation</span>
+</span></span><span style="display:flex;"><span>stlname = [<span style="color:#e6db74">&#39;G_build1.stl&#39;</span>]; <span style="color:#75715e">% File name</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Generate neutral Surface based on Chosen TPMS Design</span>
+</span></span><span style="display:flex;"><span>Surf = isosurface(x,y,z,F,<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Create Offsets for Desired Thickness based on Surface Normals</span>
+</span></span><span style="display:flex;"><span>SNorms = isonormals(x,y,z,F,Surf.vertices); <span style="color:#75715e">% Surface Normals at Vertices</span>
+</span></span><span style="display:flex;"><span>SNunit = SNorms<span style="color:#f92672">./</span>vecnorm(SNorms,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>); <span style="color:#75715e">% Surface Unit Normals at Vertices</span>
+</span></span><span style="display:flex;"><span>OSoffset = Surf.vertices <span style="color:#f92672">+</span> ht_tot<span style="color:#f92672">*</span>SNunit; <span style="color:#75715e">% Outer Surface Offset</span>
+</span></span><span style="display:flex;"><span>Soffset1 = Surf.vertices <span style="color:#f92672">+</span> ht_core<span style="color:#f92672">*</span>SNunit;
+</span></span><span style="display:flex;"><span>Soffset2 = Surf.vertices <span style="color:#f92672">-</span> ht_core<span style="color:#f92672">*</span>SNunit;
+</span></span><span style="display:flex;"><span>ISoffset = Surf.vertices <span style="color:#f92672">-</span> ht_tot<span style="color:#f92672">*</span>SNunit; <span style="color:#75715e">% Inner Surface Offset</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Find Free Boundary Surfaces in order to Close Lattice Surface</span>
+</span></span><span style="display:flex;"><span>TRfb = triangulation([Surf.faces; Surf.faces <span style="color:#f92672">+</span> max(max(Surf.faces)); Surf.faces <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>max(max(Surf.faces)); Surf.faces <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>max(max(Surf.faces))],[ISoffset;Soffset2;Soffset1;OSoffset]); <span style="color:#75715e">% Inner &amp; Outer Surface Triangulation</span>
+</span></span><span style="display:flex;"><span>FB = freeBoundary(TRfb); <span style="color:#75715e">% Surface Free Boundaries</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Enclose Openings Between Inner and Outer Surfaces</span>
+</span></span><span style="display:flex;"><span>FBtr = FB; <span style="color:#75715e">% Surface Free Boundary Index</span>
+</span></span><span style="display:flex;"><span>qFB = length(FB)<span style="color:#f92672">/</span><span style="color:#ae81ff">4</span>; <span style="color:#75715e">% Half of the Free Boundary Index</span>
+</span></span><span style="display:flex;"><span>FBtr(<span style="color:#ae81ff">1</span>:qFB,<span style="color:#ae81ff">3</span>) = FB(qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>qFB,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>FBtr(qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>qFB,<span style="color:#ae81ff">3</span>) = FB(<span style="color:#ae81ff">1</span>:qFB,<span style="color:#ae81ff">2</span>); 
+</span></span><span style="display:flex;"><span>FBtr(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>qFB,<span style="color:#ae81ff">3</span>) = FB(<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#66d9ef">end</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>FBtr(<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#66d9ef">end</span>,<span style="color:#ae81ff">3</span>) = FB(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>qFB<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>qFB,<span style="color:#ae81ff">2</span>); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Combine Surfaces Arrays into Single Array for Triangulation</span>
+</span></span><span style="display:flex;"><span>sVerts = [ISoffset;Soffset2;Soffset1; OSoffset]; 
+</span></span><span style="display:flex;"><span>sFaces = [Surf.faces; Surf.faces <span style="color:#f92672">+</span> max(max(Surf.faces)); Surf.faces <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>max(max(Surf.faces)); Surf.faces <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>max(max(Surf.faces))];
+</span></span><span style="display:flex;"><span>sFull = [sFaces; FBtr]; <span style="color:#75715e">% Add Boundaries</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Triangulation of Build for .stl Output</span>
+</span></span><span style="display:flex;"><span>TR = triangulation(sFull,sVerts);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stlwrite(TR,stlname);
+</span></span></code></pre></div></div>
+    </article>
+  </main>
+
+      </div>
+      <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/swleeeeee">GitHub</a>
+      
+         | 
+        <a href="https://space.bilibili.com/115155048">Bilibili</a>
+      
+         | 
+        <a href="https://blog.csdn.net/m0_59162304?spm=1000.2115.3001.5343">CSDN</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2025
+    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    x1955005005@gmail.com
+  </p>
+</footer>
+
+    </div>
+  </body>
+</html>

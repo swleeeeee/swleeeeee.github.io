@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meshing on Crafeeee&#39;s</title>
+    <link>https://swleeeeee.github.io/tags/meshing/</link>
+    <description>Recent content in Meshing on Crafeeee&#39;s</description>
+    <generator>Hugo</generator>
+    <language>en-us,zh-cn</language>
+    <lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://swleeeeee.github.io/tags/meshing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meshing tricks for TPMS</title>
+      <link>https://swleeeeee.github.io/posts/24-10-15/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://swleeeeee.github.io/posts/24-10-15/</guid>
+      <description>&lt;p&gt;要处理类似极小曲面（TPMS）这样的异形曲面，可能会产生一些网格划分上的问题，例如，曲面生成的如果不够光滑，在划分网格时会产生小细线、小面片，通常情况下网格质量不会特别好。以下是我自己找到的一套处理方法，欢迎讨论、优化：&lt;/p&gt;&#xA;&lt;h1 id=&#34;对异形曲面参数化建模时建立更光滑的曲面&#34;&gt;对异形曲面参数化建模时，建立更光滑的曲面&lt;/h1&gt;&#xA;&lt;p&gt;例如我用mathematica建模，就是选取更多的PlotPoints&lt;/p&gt;&#xA;&lt;h1 id=&#34;1使用magics进行三角面片简化细化光滑重画网格&#34;&gt;1.使用Magics进行三角面片简化/细化光滑/重画网格&lt;/h1&gt;&#xA;&lt;p&gt;这一步使用的是软件里的功能先傻瓜操作，对曲面质量做一个初步的提升，如果曲面质量还可以可以忽略这一步（讲道理只要是专门处理stl的软件都会有这个功能也不一定要用magics）&lt;/p&gt;&#xA;&lt;h1 id=&#34;2在hypermesh当中先根据导入的stl文件建立surface再对这个surface进行automesh操作初步得到网格如果发现质量好就可以直接导出&#34;&gt;2.在hypermesh当中，先根据导入的stl文件建立surface，再对这个surface进行automesh操作，初步得到网格，如果发现质量好就可以直接导出&lt;/h1&gt;&#xA;&lt;h1 id=&#34;3检查网格问题对存在问题进行修补删除&#34;&gt;3.检查网格问题，对存在问题进行修补删除&lt;/h1&gt;&#xA;&lt;p&gt;注意网格划分时候的边界情况，如果有很多小细线，需要在quick edit&amp;ndash;toogle lines进行处理；&lt;/p&gt;&#xA;&lt;h3 id=&#34;如果遇到质量很差的多小面片&#34;&gt;如果遇到质量很差的多小面片：&lt;/h3&gt;&#xA;&lt;p&gt;————————————————&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方案一&lt;/strong&gt;：检查网格的质量，使用check elem&amp;ndash;点选各个检查特征值&amp;ndash;save failed&amp;ndash;delete&amp;ndash;retrieve&amp;ndash;delete entity&#xA;方法参考&lt;a href=&#34;https://www.bilibili.com/video/BV1Mh4y117nQ/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=6ed4355279e79869f34ed924af694b1d&#34;&gt;https://www.bilibili.com/video/BV1Mh4y117nQ/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=6ed4355279e79869f34ed924af694b1d&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方案二&lt;/strong&gt;：replace合并节点&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方案三&lt;/strong&gt;：直接选中小面片delete&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方案四&lt;/strong&gt;：局部重新划分&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;方案五&lt;/strong&gt;：edit elem&amp;ndash;create 修补网格，之后重新划分&lt;/p&gt;&#xA;&lt;p&gt;以下是实操视频，由于第一遍就已经产生质量不错的网格，所以只简单展示了一下方案一&#xA;&lt;a href=&#34;https://www.bilibili.com/video/BV1niCUYREi2/?vd_source=6ed4355279e79869f34ed924af694b1d&#34;&gt;https://www.bilibili.com/video/BV1niCUYREi2/?vd_source=6ed4355279e79869f34ed924af694b1d&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;————————————————&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

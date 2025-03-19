@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic on Crafeeee&#39;s</title>
+    <link>https://swleeeeee.github.io/tags/dynamic/</link>
+    <description>Recent content in Dynamic on Crafeeee&#39;s</description>
+    <generator>Hugo</generator>
+    <language>en-us,zh-cn</language>
+    <lastBuildDate>Thu, 13 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://swleeeeee.github.io/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TPMS simulation using Dynamic/Explicit</title>
+      <link>https://swleeeeee.github.io/posts/25-3-13/</link>
+      <pubDate>Thu, 13 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://swleeeeee.github.io/posts/25-3-13/</guid>
+      <description>&lt;h1 id=&#34;1initial-simulation-settings&#34;&gt;1.Initial simulation settings&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../pic/25-3-13-1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;its results down here&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../pic/25-3-13-3.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;still got some questions: why they got zero Poisson&amp;rsquo;s Ratio instead of Postive Poisson&amp;rsquo;s Ratio&lt;/p&gt;&#xA;&lt;p&gt;Despite its wrong density and step period ,the results can be partly resonable according to its consistent settings (regardless of ALLKE/ALLIE&amp;gt;5%).&lt;/p&gt;&#xA;&lt;h1 id=&#34;1rectified-simulation-settings&#34;&gt;1.Rectified simulation settings&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../pic/25-3-13-2.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;As for its tiny time period, it&amp;rsquo;s according to&lt;/p&gt;&#xA;&lt;h2 id=&#34;1why-dont-we-do-that&#34;&gt;1.Why don&amp;rsquo;t we do that:&lt;/h2&gt;&#xA;&lt;p&gt;If consistnet with experimental time period, its total time increments will a be mega number, for its critical time increment is tiny near  micron-scale, it cost a lot even the collapse of the sys.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

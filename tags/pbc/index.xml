@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PBC on Crafeeee&#39;s</title>
+    <link>https://swleeeeee.github.io/tags/pbc/</link>
+    <description>Recent content in PBC on Crafeeee&#39;s</description>
+    <generator>Hugo</generator>
+    <language>en-us,zh-cn</language>
+    <lastBuildDate>Thu, 07 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://swleeeeee.github.io/tags/pbc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TPMS periodic single-cell integration simulation</title>
+      <link>https://swleeeeee.github.io/posts/24-11-7/</link>
+      <pubDate>Thu, 07 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://swleeeeee.github.io/posts/24-11-7/</guid>
+      <description>&lt;h1 id=&#34;1模型生成mathematica&#34;&gt;1.模型生成(mathematica)&lt;/h1&gt;&#xA;&lt;p&gt;模型方程参考&lt;a href=&#34;https://mp.weixin.qq.com/s/J1FIr99urkgp4c92-9rIRA&#34;&gt;https://mp.weixin.qq.com/s/J1FIr99urkgp4c92-9rIRA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Gyroid&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：sin(x) cos(y) + sin(y) cos(z) + sin(z) cos(x)&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Schwarz (Primitive)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：cos(x)+cos(y)+cos(z)&lt;/p&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Diamond&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：sin(x)*sin(y)*sin(z)+sin(x)*cos(y)*cos(z)+cos(x)*sin(y)*cos(z)+cos(x)*cos(y)*sin(z)&lt;/p&gt;&#xA;&lt;ol start=&#34;4&#34;&gt;&#xA;&lt;li&gt;Lidinoid&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：sin(2&lt;em&gt;x) * cos(y) * sin(z) + sin(2&lt;/em&gt;y) * cos(z) * sin(x) + sin(2&lt;em&gt;z) * cos(x) * sin(y) - cos(2&lt;/em&gt;x) * cos(2&lt;em&gt;y) - cos(2&lt;/em&gt;y) * cos(2&lt;em&gt;z) - cos(2&lt;/em&gt;z) * cos(2*x) + 0.3&lt;/p&gt;&#xA;&lt;ol start=&#34;5&#34;&gt;&#xA;&lt;li&gt;Split P&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：1.1*(sin(2&lt;em&gt;x)&lt;em&gt;sin(z)&lt;em&gt;cos(y)+sin(2&lt;/em&gt;y)&lt;em&gt;sin(x)&lt;em&gt;cos(z)+sin(2&lt;/em&gt;z)&lt;em&gt;sin(y)&lt;em&gt;cos(x))&#xA;-0.2&lt;/em&gt;(cos(2&lt;/em&gt;x)&lt;em&gt;cos(2&lt;/em&gt;y)+cos(2&lt;/em&gt;y)&lt;em&gt;cos(2&lt;/em&gt;z)+cos(2&lt;/em&gt;z)&lt;em&gt;cos(2&lt;/em&gt;x))-0.4&lt;/em&gt;(cos(2&lt;em&gt;x) + cos(2&lt;/em&gt;y) +cos(2*z))&lt;/p&gt;&#xA;&lt;ol start=&#34;6&#34;&gt;&#xA;&lt;li&gt;Neovius&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：3*(cos(x)+cos(y)+cos(z))+4*cos(x)*cos(y)*cos(z)&lt;/p&gt;&#xA;&lt;ol start=&#34;7&#34;&gt;&#xA;&lt;li&gt;IWP&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;方程：2 (Cos[Pi/10 x] Cos[Pi/10 y] + Cos[Pi/10 y] Cos[Pi/10 z] + Cos[Pi/10 z] Cos[Pi/10 x]) - (Cos[Pi/5 x] + Cos[Pi/5 y] +Cos[Pi/5 z])&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
