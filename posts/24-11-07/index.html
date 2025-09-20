@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
@@ -17,47 +17,6 @@
   <link rel="stylesheet" href="/css/smigle.css"/>
   
   
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body, {
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        throwOnError: false,
-        strict: false
-    });"></script>
-
-
-<style>
-.katex {
-    font-size: 1.1em;
-}
-
-.katex-display {
-    margin: 1.5em 0;
-    text-align: center;
-}
-
- 
-table .katex {
-    font-size: 0.9em;
-}
-
- 
-.katex-inline {
-    margin: 0 0.1em;
-}
-</style>
-
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -71,14 +30,14 @@ table .katex {
     <div id="root">
       <header>
   <div id="brand">
-    <a class="icon-link" href="https://swleeeeee.github.io/">
+    <a class="icon-link" href="http://localhost:1313/">
       <img
         class="icon"
         src="/images/brandIcon.svg"
       />
     </a>
     <div class="text">
-      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <a href="http://localhost:1313/"><h1>Crafeeee&#39;s</h1></a>
       <h3>Gains can&#39;t stop</h3>
     </div>
   </div>
@@ -119,7 +78,7 @@ table .katex {
     
       <a href="/categories/research-tpms">Research-TPMS</a>
   </strong>
-  <span> • 583 words</span>
+  <span> • 474 words</span>
   
   
     <div>
@@ -188,253 +147,120 @@ hypermesh中的网格高质量自动化重新划分工具（如同magics一样�
 <p>主要方法：首先示教一遍具体的操作步骤，注意操作的适用性，主要包含导入模型、施加材料属性、创建实例、生成inp文件等；使用abaqus.rpy或 abaqus.rec文件中记录的宏操作，新建py文件，加入所需的库，加入串联语句运行PBC节点匹配脚本；自动合并三个文件（.inp, .dat, .txt）,其中txt是预先设置的load、steps等，这里其实也可以在第一步示教加上。
 最后可以实现，对同种网格类型的模型进行一次示教，就可以自动创建材料、自动施加边界条件、自动提交运算，一步到位！</p>
 <p>在最前面加上：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> abaqus <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> abaqusConstants <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意write input操作和run script操作如果没有被.rpy记录，可以使用以下语句唤起下一个脚本（即PBC节点匹配），此方法能很好地进行脚本的串联运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abaqus</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abaqusConstants</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">string</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span></code></pre></div><p>注意write input操作和run script操作如果没有被.rpy记录，可以使用以下语句唤起下一个脚本（即PBC节点匹配），此方法能很好地进行脚本的串联运行：</p>
 <p>mdb.jobs[job_name].writeInput(consistencyChecking=OFF)
 execfile(PBC_FILE_dir, <strong>main</strong>.<strong>dict</strong>)</p>
 <p>完全代码如下，注意文件间的变量传递，可以将所需的变量（文件路径、文件名）放在第一个脚本下统一输入;文件路径可以使用绝对路径，也可以使用相对路径，将所要操作的文件放在同一个目录下就很方便。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> abaqus <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> abaqusConstants <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> string
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> part <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> material <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> section <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> assembly <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> step <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> interaction <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> load <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mesh <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> optimization <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> job <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sketch <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> visualization <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> connectorBehavior <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span>inp_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;D:/TPMS/Gyroid.inp&#39;</span>
-</span></span><span style="display:flex;"><span>job_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Gyroid0&#39;</span>
-</span></span><span style="display:flex;"><span>PBC_FILE_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;D:/TPMS/node_match/node_match_3D_Shell_modi.py&#39;</span>
-</span></span><span style="display:flex;"><span>ODB_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GYROID_SHELL&#39;</span>
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>PartFromInputFile(inputFileName<span style="color:#f92672">=</span>inp_dir)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>Material(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;BXG&#39;</span>)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>materials[<span style="color:#e6db74">&#39;BXG&#39;</span>]<span style="color:#f92672">.</span>Elastic(table<span style="color:#f92672">=</span>((<span style="color:#ae81ff">179800.0</span>, <span style="color:#ae81ff">0.26</span>), ))
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>materials[<span style="color:#e6db74">&#39;BXG&#39;</span>]<span style="color:#f92672">.</span>Plastic(table<span style="color:#f92672">=</span>((<span style="color:#ae81ff">212.0</span>, <span style="color:#ae81ff">0.0</span>), (<span style="color:#ae81ff">638.0</span>, 
-</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0.42</span>)))
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>Material(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;FOAM&#39;</span>)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>materials[<span style="color:#e6db74">&#39;FOAM&#39;</span>]<span style="color:#f92672">.</span>Elastic(table<span style="color:#f92672">=</span>((<span style="color:#ae81ff">2000.0</span>, <span style="color:#ae81ff">0.3</span>), ))
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>CompositeLayup(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, 
-</span></span><span style="display:flex;"><span>    elementType<span style="color:#f92672">=</span>SHELL, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>, offsetType<span style="color:#f92672">=</span>MIDDLE_SURFACE, 
-</span></span><span style="display:flex;"><span>    symmetric<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, thicknessAssignment<span style="color:#f92672">=</span>FROM_SECTION)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>Section(
-</span></span><span style="display:flex;"><span>    integrationRule<span style="color:#f92672">=</span>SIMPSON, poissonDefinition<span style="color:#f92672">=</span>DEFAULT, preIntegrate<span style="color:#f92672">=</span>OFF, 
-</span></span><span style="display:flex;"><span>    temperature<span style="color:#f92672">=</span>GRADIENT, thicknessType<span style="color:#f92672">=</span>UNIFORM, useDensity<span style="color:#f92672">=</span>OFF)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>ReferenceOrientation(
-</span></span><span style="display:flex;"><span>    additionalRotationType<span style="color:#f92672">=</span>ROTATION_NONE, angle<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, axis<span style="color:#f92672">=</span>AXIS_3, fieldName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, 
-</span></span><span style="display:flex;"><span>    localCsys<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, orientationType<span style="color:#f92672">=</span>GLOBAL)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>suppress(
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>CompositePly(
-</span></span><span style="display:flex;"><span>    additionalRotationField<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, additionalRotationType<span style="color:#f92672">=</span>ROTATION_NONE, angle<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>
-</span></span><span style="display:flex;"><span>    , axis<span style="color:#f92672">=</span>AXIS_3, material<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;BXG&#39;</span>, numIntPoints<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, orientationType<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    SPECIFY_ORIENT, orientationValue<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, plyName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Ply-1&#39;</span>, region<span style="color:#f92672">=</span>Region(
-</span></span><span style="display:flex;"><span>    elements<span style="color:#f92672">=</span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>elements<span style="color:#f92672">.</span>getSequenceFromMask(
-</span></span><span style="display:flex;"><span>    mask<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;[#ffffffff:1416 #3f ]&#39;</span>, ), )), suppressed<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, 
-</span></span><span style="display:flex;"><span>    thicknessType<span style="color:#f92672">=</span>SPECIFY_THICKNESS)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>CompositePly(
-</span></span><span style="display:flex;"><span>    additionalRotationField<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, additionalRotationType<span style="color:#f92672">=</span>ROTATION_NONE, angle<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>
-</span></span><span style="display:flex;"><span>    , axis<span style="color:#f92672">=</span>AXIS_3, material<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;FOAM&#39;</span>, numIntPoints<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, orientationType<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    SPECIFY_ORIENT, orientationValue<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, plyName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Ply-2&#39;</span>, region<span style="color:#f92672">=</span>Region(
-</span></span><span style="display:flex;"><span>    elements<span style="color:#f92672">=</span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>elements<span style="color:#f92672">.</span>getSequenceFromMask(
-</span></span><span style="display:flex;"><span>    mask<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;[#ffffffff:1416 #3f ]&#39;</span>, ), )), suppressed<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>, 
-</span></span><span style="display:flex;"><span>    thicknessType<span style="color:#f92672">=</span>SPECIFY_THICKNESS)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>CompositePly(
-</span></span><span style="display:flex;"><span>    additionalRotationField<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, additionalRotationType<span style="color:#f92672">=</span>ROTATION_NONE, angle<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>
-</span></span><span style="display:flex;"><span>    , axis<span style="color:#f92672">=</span>AXIS_3, material<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;BXG&#39;</span>, numIntPoints<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, orientationType<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    SPECIFY_ORIENT, orientationValue<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, plyName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Ply-3&#39;</span>, region<span style="color:#f92672">=</span>Region(
-</span></span><span style="display:flex;"><span>    elements<span style="color:#f92672">=</span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>elements<span style="color:#f92672">.</span>getSequenceFromMask(
-</span></span><span style="display:flex;"><span>    mask<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;[#ffffffff:1416 #3f ]&#39;</span>, ), )), suppressed<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, 
-</span></span><span style="display:flex;"><span>    thicknessType<span style="color:#f92672">=</span>SPECIFY_THICKNESS)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>]<span style="color:#f92672">.</span>compositeLayups[<span style="color:#e6db74">&#39;CompositeLayup-1&#39;</span>]<span style="color:#f92672">.</span>resume(
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>rootAssembly<span style="color:#f92672">.</span>DatumCsysByDefault(CARTESIAN)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>rootAssembly<span style="color:#f92672">.</span>Instance(dependent<span style="color:#f92672">=</span>ON, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;PART-1-1&#39;</span>, 
-</span></span><span style="display:flex;"><span>    part<span style="color:#f92672">=</span>mdb<span style="color:#f92672">.</span>models[<span style="color:#e6db74">&#39;Model-1&#39;</span>]<span style="color:#f92672">.</span>parts[<span style="color:#e6db74">&#39;PART-1&#39;</span>])
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>Job(activateLoadBalancing<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, atTime<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, contactPrint<span style="color:#f92672">=</span>OFF, 
-</span></span><span style="display:flex;"><span>    description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, echoPrint<span style="color:#f92672">=</span>OFF, explicitPrecision<span style="color:#f92672">=</span>SINGLE, 
-</span></span><span style="display:flex;"><span>    getMemoryFromAnalysis<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, historyPrint<span style="color:#f92672">=</span>OFF, memory<span style="color:#f92672">=</span><span style="color:#ae81ff">90</span>, memoryUnits<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    PERCENTAGE, model<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Model-1&#39;</span>, modelPrint<span style="color:#f92672">=</span>OFF, multiprocessingMode<span style="color:#f92672">=</span>DEFAULT, 
-</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span>job_name, nodalOutputPrecision<span style="color:#f92672">=</span>SINGLE, numCpus<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, numDomains<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, 
-</span></span><span style="display:flex;"><span>    numGPUs<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, parallelizationMethodExplicit<span style="color:#f92672">=</span>DOMAIN, queue<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, resultsFormat<span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    ODB, scratch<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, type<span style="color:#f92672">=</span>ANALYSIS, userSubroutine<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, waitHours<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, 
-</span></span><span style="display:flex;"><span>    waitMinutes<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>mdb<span style="color:#f92672">.</span>jobs[job_name]<span style="color:#f92672">.</span>writeInput(consistencyChecking<span style="color:#f92672">=</span>OFF)
-</span></span><span style="display:flex;"><span>execfile(PBC_FILE_dir, __main__<span style="color:#f92672">.</span>__dict__)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#PBC_node_match_souce_code</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> Model_Creations_shell <span style="color:#f92672">import</span> ODB_NAME 
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Model_Creations_shell <span style="color:#f92672">import</span> job_name
-</span></span><span style="display:flex;"><span>file_a_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../&#39;</span><span style="color:#f92672">+</span>job_name<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;_node.inp&#39;</span>
-</span></span><span style="display:flex;"><span>file_b_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../&#39;</span><span style="color:#f92672">+</span>job_name<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;.inp&#39;</span>
-</span></span><span style="display:flex;"><span>file_c_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../load1.txt&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(file_a_path, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> file_a:
-</span></span><span style="display:flex;"><span>    content_a <span style="color:#f92672">=</span> file_a<span style="color:#f92672">.</span>read()
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(file_b_path, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> file_b:
-</span></span><span style="display:flex;"><span>    content_b <span style="color:#f92672">=</span> file_b<span style="color:#f92672">.</span>read()
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(file_c_path, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> file_c:
-</span></span><span style="display:flex;"><span>    content_c <span style="color:#f92672">=</span> file_c<span style="color:#f92672">.</span>read()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>keyword0 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;*End Assembly&#39;</span>
-</span></span><span style="display:flex;"><span>keyword1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;*end assembly&#39;</span>
-</span></span><span style="display:flex;"><span>keyword2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;*END ASSEMBLY&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> keyword0 <span style="color:#f92672">in</span> content_b:
-</span></span><span style="display:flex;"><span>    content_b <span style="color:#f92672">=</span> content_b<span style="color:#f92672">.</span>replace(keyword0, content_a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> keyword0)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> keyword1 <span style="color:#f92672">in</span> content_b:
-</span></span><span style="display:flex;"><span>    content_b <span style="color:#f92672">=</span> content_b<span style="color:#f92672">.</span>replace(keyword1, content_a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> keyword1)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> keyword2 <span style="color:#f92672">in</span> content_b:
-</span></span><span style="display:flex;"><span>    content_b <span style="color:#f92672">=</span> content_b<span style="color:#f92672">.</span>replace(keyword2, content_a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> keyword2)
-</span></span><span style="display:flex;"><span>content_b <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> content_c
-</span></span><span style="display:flex;"><span>new_file_path <span style="color:#f92672">=</span> ODB_NAME<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;.txt&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(new_file_path , <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> ODB_NAME:
-</span></span><span style="display:flex;"><span>    ODB_NAME<span style="color:#f92672">.</span>write(content_b)
-</span></span></code></pre></td></tr></table>
-</div>
-</div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abaqus</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">abaqusConstants</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">string</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">part</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">material</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">section</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">assembly</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">step</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">interaction</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">load</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mesh</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">optimization</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">job</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sketch</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">visualization</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">connectorBehavior</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="n">inp_dir</span><span class="o">=</span><span class="s1">&#39;D:/TPMS/Gyroid.inp&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">job_name</span><span class="o">=</span><span class="s1">&#39;Gyroid0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">PBC_FILE_dir</span><span class="o">=</span><span class="s1">&#39;D:/TPMS/node_match/node_match_3D_Shell_modi.py&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ODB_NAME</span><span class="o">=</span><span class="s1">&#39;GYROID_SHELL&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">PartFromInputFile</span><span class="p">(</span><span class="n">inputFileName</span><span class="o">=</span><span class="n">inp_dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Material</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;BXG&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s1">&#39;BXG&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Elastic</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="p">((</span><span class="mf">179800.0</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">),</span> <span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s1">&#39;BXG&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Plastic</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="p">((</span><span class="mf">212.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">638.0</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="mf">0.42</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Material</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;FOAM&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s1">&#39;FOAM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Elastic</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="p">((</span><span class="mf">2000.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">CompositeLayup</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">elementType</span><span class="o">=</span><span class="n">SHELL</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">,</span> <span class="n">offsetType</span><span class="o">=</span><span class="n">MIDDLE_SURFACE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">symmetric</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">thicknessAssignment</span><span class="o">=</span><span class="n">FROM_SECTION</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Section</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">integrationRule</span><span class="o">=</span><span class="n">SIMPSON</span><span class="p">,</span> <span class="n">poissonDefinition</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">,</span> <span class="n">preIntegrate</span><span class="o">=</span><span class="n">OFF</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">temperature</span><span class="o">=</span><span class="n">GRADIENT</span><span class="p">,</span> <span class="n">thicknessType</span><span class="o">=</span><span class="n">UNIFORM</span><span class="p">,</span> <span class="n">useDensity</span><span class="o">=</span><span class="n">OFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ReferenceOrientation</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">additionalRotationType</span><span class="o">=</span><span class="n">ROTATION_NONE</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">AXIS_3</span><span class="p">,</span> <span class="n">fieldName</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">localCsys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientationType</span><span class="o">=</span><span class="n">GLOBAL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">CompositePly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">additionalRotationField</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additionalRotationType</span><span class="o">=</span><span class="n">ROTATION_NONE</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">AXIS_3</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s1">&#39;BXG&#39;</span><span class="p">,</span> <span class="n">numIntPoints</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">orientationType</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SPECIFY_ORIENT</span><span class="p">,</span> <span class="n">orientationValue</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">plyName</span><span class="o">=</span><span class="s1">&#39;Ply-1&#39;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">Region</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">elements</span><span class="o">=</span><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">getSequenceFromMask</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;[#ffffffff:1416 #3f ]&#39;</span><span class="p">,</span> <span class="p">),</span> <span class="p">)),</span> <span class="n">suppressed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">thicknessType</span><span class="o">=</span><span class="n">SPECIFY_THICKNESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">CompositePly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">additionalRotationField</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additionalRotationType</span><span class="o">=</span><span class="n">ROTATION_NONE</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">AXIS_3</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s1">&#39;FOAM&#39;</span><span class="p">,</span> <span class="n">numIntPoints</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">orientationType</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SPECIFY_ORIENT</span><span class="p">,</span> <span class="n">orientationValue</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">plyName</span><span class="o">=</span><span class="s1">&#39;Ply-2&#39;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">Region</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">elements</span><span class="o">=</span><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">getSequenceFromMask</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;[#ffffffff:1416 #3f ]&#39;</span><span class="p">,</span> <span class="p">),</span> <span class="p">)),</span> <span class="n">suppressed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">thicknessType</span><span class="o">=</span><span class="n">SPECIFY_THICKNESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">CompositePly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">additionalRotationField</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">additionalRotationType</span><span class="o">=</span><span class="n">ROTATION_NONE</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">AXIS_3</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="s1">&#39;BXG&#39;</span><span class="p">,</span> <span class="n">numIntPoints</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">orientationType</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SPECIFY_ORIENT</span><span class="p">,</span> <span class="n">orientationValue</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">plyName</span><span class="o">=</span><span class="s1">&#39;Ply-3&#39;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">Region</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">elements</span><span class="o">=</span><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">getSequenceFromMask</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;[#ffffffff:1416 #3f ]&#39;</span><span class="p">,</span> <span class="p">),</span> <span class="p">)),</span> <span class="n">suppressed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">thicknessType</span><span class="o">=</span><span class="n">SPECIFY_THICKNESS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compositeLayups</span><span class="p">[</span><span class="s1">&#39;CompositeLayup-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resume</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rootAssembly</span><span class="o">.</span><span class="n">DatumCsysByDefault</span><span class="p">(</span><span class="n">CARTESIAN</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rootAssembly</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span><span class="n">dependent</span><span class="o">=</span><span class="n">ON</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PART-1-1&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">part</span><span class="o">=</span><span class="n">mdb</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Model-1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="s1">&#39;PART-1&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="n">activateLoadBalancing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">atTime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">contactPrint</span><span class="o">=</span><span class="n">OFF</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">echoPrint</span><span class="o">=</span><span class="n">OFF</span><span class="p">,</span> <span class="n">explicitPrecision</span><span class="o">=</span><span class="n">SINGLE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">getMemoryFromAnalysis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">historyPrint</span><span class="o">=</span><span class="n">OFF</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">memoryUnits</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PERCENTAGE</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;Model-1&#39;</span><span class="p">,</span> <span class="n">modelPrint</span><span class="o">=</span><span class="n">OFF</span><span class="p">,</span> <span class="n">multiprocessingMode</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">name</span><span class="o">=</span><span class="n">job_name</span><span class="p">,</span> <span class="n">nodalOutputPrecision</span><span class="o">=</span><span class="n">SINGLE</span><span class="p">,</span> <span class="n">numCpus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">numDomains</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">numGPUs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parallelizationMethodExplicit</span><span class="o">=</span><span class="n">DOMAIN</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resultsFormat</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ODB</span><span class="p">,</span> <span class="n">scratch</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ANALYSIS</span><span class="p">,</span> <span class="n">userSubroutine</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">waitHours</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">waitMinutes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mdb</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">job_name</span><span class="p">]</span><span class="o">.</span><span class="n">writeInput</span><span class="p">(</span><span class="n">consistencyChecking</span><span class="o">=</span><span class="n">OFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">execfile</span><span class="p">(</span><span class="n">PBC_FILE_dir</span><span class="p">,</span> <span class="n">__main__</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#PBC_node_match_souce_code</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Model_Creations_shell</span> <span class="kn">import</span> <span class="n">ODB_NAME</span> 
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Model_Creations_shell</span> <span class="kn">import</span> <span class="n">job_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">file_a_path</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span><span class="o">+</span><span class="n">job_name</span><span class="o">+</span><span class="s1">&#39;_node.inp&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">file_b_path</span> <span class="o">=</span> <span class="s1">&#39;../&#39;</span><span class="o">+</span><span class="n">job_name</span><span class="o">+</span><span class="s1">&#39;.inp&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">file_c_path</span> <span class="o">=</span> <span class="s1">&#39;../load1.txt&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_a_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_a</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_a</span> <span class="o">=</span> <span class="n">file_a</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_b_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_b</span> <span class="o">=</span> <span class="n">file_b</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_c_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_c</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_c</span> <span class="o">=</span> <span class="n">file_c</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">keyword0</span> <span class="o">=</span> <span class="s1">&#39;*End Assembly&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">keyword1</span> <span class="o">=</span> <span class="s1">&#39;*end assembly&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">keyword2</span> <span class="o">=</span> <span class="s1">&#39;*END ASSEMBLY&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">keyword0</span> <span class="ow">in</span> <span class="n">content_b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_b</span> <span class="o">=</span> <span class="n">content_b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">keyword0</span><span class="p">,</span> <span class="n">content_a</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">keyword0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">keyword1</span> <span class="ow">in</span> <span class="n">content_b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_b</span> <span class="o">=</span> <span class="n">content_b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">keyword1</span><span class="p">,</span> <span class="n">content_a</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">keyword1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">keyword2</span> <span class="ow">in</span> <span class="n">content_b</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">content_b</span> <span class="o">=</span> <span class="n">content_b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">keyword2</span><span class="p">,</span> <span class="n">content_a</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">keyword2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">content_b</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">content_c</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_file_path</span> <span class="o">=</span> <span class="n">ODB_NAME</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">new_file_path</span> <span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ODB_NAME</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ODB_NAME</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content_b</span><span class="p">)</span>
+</span></span></code></pre></div></div>
     </article>
   </main>
 
@@ -459,7 +285,7 @@ execfile(PBC_FILE_dir, <strong>main</strong>.<strong>dict</strong>)</p>
   
   <p class="copyright">
     Copyright © 2025
-    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    <a href="http://localhost:1313/"><strong>Crafeeee</strong></a>.
     x1955005005@gmail.com
   </p>
 </footer>
