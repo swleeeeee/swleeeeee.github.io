@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Model on Crafeeee&#39;s</title>
-    <link>http://localhost:1313/tags/model/</link>
+    <link>https://swleeeeee.github.io/tags/model/</link>
     <description>Recent content in Model on Crafeeee&#39;s</description>
     <generator>Hugo</generator>
     <language>en-us,zh-cn</language>
     <lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/model/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://swleeeeee.github.io/tags/model/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Abaqus rotational model</title>
-      <link>http://localhost:1313/posts/25-07-10/</link>
+      <link>https://swleeeeee.github.io/posts/25-07-10/</link>
       <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/25-07-10/</guid>
+      <guid>https://swleeeeee.github.io/posts/25-07-10/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h1 id=&#34;coupling-constraint&#34;&gt;Coupling Constraint&lt;/h1&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;inner circular walls&lt;br&gt;&#xA;&lt;img src=&#34;../pic/25-07-10-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;the whole body exclude beforementioned inner walls and the upper&amp;amp;lower surfaces of those bolts&#xA;(can&amp;rsquo;t let two points control one with its all DOFs， the upper&amp;amp;lower surfaces of those bolts controled by two points seperately will fail due to their shared edges)&#xA;&lt;img src=&#34;../pic/25-07-10-2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;the honeycomb walls clipped by the square clamp&#xA;（surface-to-surface interactions failed, make the 2nd coupling constraint and 3rd ones shared the same RFs）&#xA;&lt;img src=&#34;../pic/25-07-10-3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
