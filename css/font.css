@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Iosevka';
+  src: local('Iosevka'),
+    url('/fonts/iosevka-regular.woff2') format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Iosevka';
+  src: local('Iosevka'),
+    url('/fonts/iosevka-bold.woff2') format("woff2");
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Iosevka';
+  src: local('Iosevka'),
+    url('/fonts/iosevka-oblique.woff2') format("woff2");
+  font-weight: italic;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SourceHanSerifCN';
+  src: local('SourceHanSerifCN'),
+       url('/fonts/SourceHanSerifCN-SemiBold.woff2') format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceHanSerifCN';
+  src: local('SourceHanSerifCN'),
+       url('/fonts/SourceHanSerifCN-Bold.woff2') format("woff2");
+  font-weight: bold;
+  font-style: bold;
+}

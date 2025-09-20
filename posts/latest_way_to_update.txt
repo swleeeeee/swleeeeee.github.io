@@ -1,0 +1,25 @@
+Step1: delete public dir
+
+Step2:打开VPN CLASHX 端口号7890
+
+
+git config --global http.proxy socks5 127.0.0.1:7890
+git config --global https.proxy socks5 127.0.0.1:7890
+
+git config --global http.proxy 127.0.0.1:7890
+git config --global https.proxy 127.0.0.1:7890
+cd Blog 
+hugo --cleanDestinationDir 
+cd public 
+git init
+git checkout -b gh-pages  
+git remote add origin https://github.com/swleeeeee/swleeeeee.github.io.git
+git add .
+git commit -m "Clean deploy - $(date +'%Y-%m-%d')"
+git push --force origin gh-pages
+
+
+如果token过期或者没有设置（新repo），可以参考这篇文章
+https://blog.csdn.net/qq_40226073/article/details/119801341
+
+

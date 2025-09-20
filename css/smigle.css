@@ -1,0 +1,225 @@
+#root {
+  font-family: Iosevka,'SourceHanSerifCN', serif;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 10px;
+}
+#brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#brand a {
+  color: var(--fontcolor);
+  text-decoration: none;
+}
+#brand h1, #brand h3 {
+  margin: 0;
+}
+#brand h1 {
+  font-size: 30px;
+}
+#brand h3 {
+  font-size: 20px;
+  font-weight: normal;
+}
+#brand .icon {
+  width: 75px;
+}
+footer {
+  margin-top: 30px;
+}
+header nav {
+  margin: 15px 0;
+}
+h1.title {
+  margin: 1.3rem 0 0 0;
+}
+h3.subtitle {
+  font-weight: normal;
+  margin: 0;
+}
+div.post-meta {
+  margin-top: 1.3rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #root {
+    margin-top: 25px;
+  }
+  #brand {
+    flex-direction: row;
+    text-align: unset;
+  }
+  #brand .text {
+    margin-left: 10px;
+  }
+  #brand h1 {
+    font-size: 45px;
+  }
+  #brand h3 {
+    font-size: 25px;
+  }
+}
+#postsByDate  {
+  list-style: none;
+}
+#postsByDate .date {
+  width: 60px;
+}
+#postsByDate div, #postsInOneGroup div {
+  display: inline-block;
+}
+#terms {
+  list-style: none;
+}
+#terms .term {
+  background-color: #ddd;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 2px;
+  padding: 8px;
+}
+
+/* 学术风格表格样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 表格头部样式 */
+table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+table thead th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 表格主体样式 */
+table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.15s ease-in-out;
+}
+
+table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+table tbody tr:nth-child(even):hover {
+  background-color: #f1f3f4;
+}
+
+table tbody td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e9ecef;
+  color: #212529;
+  line-height: 1.4;
+}
+
+/* 表格单元格对齐 */
+table th[style*="text-align: center"],
+table td[style*="text-align: center"] {
+  text-align: center !important;
+}
+
+table th[style*="text-align: right"],
+table td[style*="text-align: right"] {
+  text-align: right !important;
+}
+
+/* 表格中的链接样式 */
+table a {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.15s ease-in-out;
+}
+
+table a:hover {
+  border-bottom-color: #007bff;
+  text-decoration: none;
+}
+
+/* 表格中的代码样式 */
+table code {
+  background-color: #f8f9fa;
+  color: #e83e8c;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* 响应式表格 */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.8rem;
+  }
+  
+  table thead th,
+  table tbody td {
+    padding: 8px 6px;
+  }
+  
+  /* 在小屏幕上允许表格横向滚动 */
+  .content {
+    overflow-x: auto;
+  }
+}
+
+/* 表格标题样式 */
+table + p:first-of-type {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* 学术表格特殊样式 - 用于数据表格 */
+table.academic-data {
+  border: 2px solid #495057;
+}
+
+table.academic-data thead {
+  background-color: #495057;
+}
+
+table.academic-data thead th {
+  color: #ffffff;
+  border-bottom: 2px solid #495057;
+}
+
+/* 表格中的数字列右对齐 */
+table td:last-child,
+table th:last-child {
+  text-align: right;
+}
+
+/* 表格中的DOI链接特殊样式 */
+table a[href*="doi.org"],
+table a[href*="10."] {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #6c757d;
+}

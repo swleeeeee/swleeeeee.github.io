@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>AI Content investigation | Crafeeee&#39;s</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false,
+        strict: false
+    });"></script>
+
+
+<style>
+.katex {
+    font-size: 1.1em;
+}
+
+.katex-display {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+ 
+table .katex {
+    font-size: 0.9em;
+}
+
+ 
+.katex-inline {
+    margin: 0 0.1em;
+}
+</style>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <div id="root">
+      <header>
+  <div id="brand">
+    <a class="icon-link" href="https://swleeeeee.github.io/">
+      <img
+        class="icon"
+        src="/images/brandIcon.svg"
+      />
+    </a>
+    <div class="text">
+      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <h3>Gains can&#39;t stop</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+      <div id="content">
+        
+  <main>
+    <article>
+      <h1 class="title">AI Content investigation</h1>
+      <h3 class="subtitle">AIGC Detection Rate &amp; AI Content Reduction Methods in Chinese</h3>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2025-09-02</time>
+    <span>in</span>
+    
+      <a href="/categories/idea">idea</a>
+  </strong>
+  <span> • 208 words</span>
+  
+  
+    <div>
+      <span>Tags:</span>
+      
+        <a href="/tags/ai">AI</a>, 
+        <a href="/tags/paper-writing">paper writing</a>, 
+        <a href="/tags/prompt">prompt</a>, 
+        <a href="/tags/chinese">Chinese</a>
+    </div>
+  
+</div>
+
+      <div class="content"><h2 id="ai检测的原理">Ai检测的原理：</h2>
+<p>区别于网民对于AI文风的感知是感性且依赖于个体认知、个体的语义理解、表达习惯不同的，AI检测工具必然有对应的检测模式，例如特征识别等方法：</p>
+<p><strong>判别器</strong>（分别投喂人写的和AI写的内容训练）<br>
+<strong>零样本</strong>（困惑度与突发性、熵度与对数概率）<br>
+<strong>水印法</strong>（使用词库中的词）</p>
+<p>重点需要理解的是困惑度（对数概率）的概念，AI生成文本本身就是一个概率问题，一句话前面的内容是 “我今天考试考好了我所以想让我爸妈（）”，根据以往训练的数据，括号里的内容为“给我买一个礼物“的概率为60%，为”打我一顿“的概率为0.1%，所以他会选择“给我买一个礼物“作为句子的后半部分。
+困惑度本身解决的是语言结果的置信度、合理性。</p>
+<p>但这其实带来了一个问题：
+人类写作其实大部分内容一定是框架式的，也就是困惑度不会很高，那我们追求高困惑度的AI率岂不是与人类写作习惯是相悖的？</p>
+<p>这时候就需要零样本的更多属性来提升判别维度，从而提升判别的精准性。
+比如突发性（熵度），这个衡量的是确定性，整体是混乱的，不可预测的，则突发性越强。
+突发性我的理解是内容出现非线形认知的额外内容，比如介绍的时候出现的比喻，是一种抽象、概括、主观的认知；又比如突然带入具体详尽的实例，这是AI大概率不会给出的。</p>
+<p>另一个更好理解的方法是，对于一个大段文本分为两部分，上半部分作为输入，下半部分内容作为输出与原文的下半部分进行比较，如果相似性高，AI率就高。</p>
+<h2 id="ai生成内容bypass-aigc率检测的可能性">AI生成内容bypass AIGC率检测的可能性：</h2>
+<p>这个最关键的问题是：AI写的东西真的能用AI改，从而绕过AIGC检测吗？</p>
+<p>首先市面上已经有许多成熟的工具，能够实现一键降AI率，所以AI内容AI改一定是可行的，关键就在于模型的训练调教上。</p>
+<h2 id="ai改写的东西怎么样既能通过检测又能符合人类认知呢">AI改写的东西怎么样既能通过检测。又能符合人类认知呢：</h2>
+<p>以下是一个例子：</p>
+<p><em>原段落（AI率 50%）</em> <br>
+我始终相信，班级管理不是“管学生”，而是“陪他们一起成长”。一名优秀的一线教师，其智慧体现在不生搬硬套别人的方法，而是结合自己班级的特点，将这些方法变成一个个“专属于自己学生的成长故事”</p>
+<p><em>笔栈（https://biee.net/）等一键降低AIGC率网站 改后 （AI率 20%）</em> <br>
+我始终感觉，所谓集体管理，主要还是重点陪伴与协作前行，并非只靠一味限制管教。理论丰富的一线工作者，坚持在实际教学过程中不照搬模板方案，反而倾向把各种思路讲究融合推敲并不断拓展，将普适做法调整为几段只属于这个团体孩子的具体发展段。</p>
+<p>显然，AI率显著下降，但是观察一键转AI的行文风格可以发现，他的语用非常生硬，不像是人写的。我把这种以大幅降低可读性为代价有效降低AI率的方法称为：<strong>硬转写</strong>。</p>
+<p>他有几个特征：</p>
+<ol>
+<li>喜欢用一些非常规的词来提高困惑度，比如将“也”换成“亦”，将“比如”换为“仿若”</li>
+<li>写作风格特别“学术化”，没有风格，行文风格与上下文脱节</li>
+<li>刻意避免文章的结构化，如总分结构</li>
+<li>没有实例，比较空洞</li>
+</ol>
+<h2 id="避免ai率提高的要点">避免AI率提高的要点：</h2>
+<h3 id="认知上">认知上：</h3>
+<ol>
+<li>创作者是负责提供思路框架的，绝对不能脑袋空空，相当于一个有一定文笔的学术助理，你就负责出思路，让它帮你落笔就是了，你再负责改，这个不能本末倒置。</li>
+<li>那种AI大段生成的玩意儿，没有内核的东西，别管你怎么翻译来翻译去，还是一眼机器味儿，不用大模型检测。</li>
+</ol>
+<h3 id="方法论上">方法论上：</h3>
+<p>提升困惑度、突发性。</p>
+<p>困惑度要<strong>从关键词到句式再到段落再到整体风格，从小往大调整</strong></p>
+<p>突发性则是主要<strong>将具体实例与一些灵感随机地加入到语段当中</strong></p>
+<p>其中困惑度是使用AI辅助降AIGC率的重点，突发性是需要笔者自己写入提升“人感”的，盲目使用AI增加突发性只会适得其反。</p>
+<h3 id="方法要点">方法要点：</h3>
+<ol>
+<li>
+<p>(<em>困惑度-关键词</em>)只保留必要的连接词, 删除重复、可要可不要的连接词</p>
+</li>
+<li>
+<p>(<em>困惑度-关键词</em>)提高用词的复杂随机性，不要用一些安全词，对重复出现高概率的词语，用低概率的词进行同义词替换。
+降低内容的可预测性。</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）不要用长难句，缩短单句的长度，同时句式长短等有起伏。
+<br>AI短句检测效果不佳，因为解码策略上，AI根据前面的词选择概率大的词汇组合作为输出，生成的句子越短，信息密度越高，潜在可能性更大，Ai查重判定的参照更少，它能依赖的只有最基本的、最常见的句法和词汇组合。但又因为这些组合都符合人类语言的基本语法，所以AI自己会认为这是“自然”的，从而更难被检测出来。</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）句子的语法可以不那么严谨，适当倒装,可以在文章中自然加入几处文法小瑕疵</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）是否有“揭示了”、“探讨了”、“验证了”、“阐释了”、“构建了”、“展示了”、“归纳了”、“对比了”、“诠释了”、“推导了”、“整合了”、“证实了”、“凸显了”、“解构了”、“重构了”、“模拟了”、“量化了”、“追溯了”、“突显了”、“关联了”、“解译了”、“刻画了”、“适配了”、“优化了”、“分解了”、“耦合了”、“锚定了”、“复现了”、“预判了”、“校准了”、“截取了”、“内嵌了”、“串联了”、“沉淀了”、“体现了”、“提交了”、“出现了”、“提出了”、“研究了”、“明确了&quot;等等这种表述句式后面跟一段又臭又长的句子</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）避免动词名词化和弱化，改为使用主动句并加入主观判断<br>
+(对原神进行一个启动)—（我启动原神）</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）勤换表达逻辑
+人工智能推动教育变革—在教育领域，人工智能正从教学模式、资源分配等方面带来深层次的变革</p>
+</li>
+<li>
+<p>（<em>困惑度-句子</em>）不要有任何的注解和括号，AI很喜欢这种表达</p>
+</li>
+<li>
+<p>（<em>困惑度-段落</em>）段落结构不要太刻意，过于结构化不要用总分总结构，每个段落应有不同的长度和结构。
+因为我写的是创作报告所以格式不像论文，经常有小观点需要一段话写完，但是ai率非常吃总分总结构，所以一句话的开头不要是总起，瞎扯点别的，中间再插入自己的观点（同时适当删点主语和连词，哪怕删完狗屁不通），结尾一定要戛然而止不能有总结句</p>
+</li>
+<li>
+<p>（<em>困惑度-风格</em>）文章情绪有起伏，引言生动/方法简练/讨论主观，，通过调整生成文本时的temperature值，使内容更加随机和多样。</p>
+</li>
+<li>
+<p>（<em>突发性</em>）加入具体例子，具体场景，具体比喻</p>
+</li>
+<li>
+<p>（<em>突发性</em>）结合自己的数据与灵感进行扩写，加入主观想法与创新点/新颖的见解和独特的声音</p>
+</li>
+</ol>
+<h3 id="实际操作">实际操作：</h3>
+<p>让AI帮你写好文章，要有几个步骤：
+先自己写好摘要，再写一个扩展化的详细摘要作为写作思路喂给AI，同时给他导入一篇文章让AI模仿学习其行文风格，同时记得告知目标检测网站（如格子达/维普/知网）；<br>
+准备好参考文献，把参考文献的引用摘出来喂给AI，把需要AI生成的图表先画好也喂给AI，把需要的公式整理好喂给AI，先让他帮你生成大纲，你手工调整完了喂给AI，让AI帮你按照调整的大纲一个一个论据推到论点，然后手工调整去掉冗余，反复多次直到写完结论。<br>
+再手工顺一遍，按照上面突发性的要点加入自己的理解</p>
+<br>
+而让AI帮你改文章降AI率也是一个道理，只是多几个点：
+需要处理的语段需要分段处理，不能指望他一篇丢进去直接一键降AI率<br>
+要求Ai给出多个版本的段落，手动合并、改写多个版本；<br>
+过几轮中-英-中的翻译，并使用不同Ai模型以规避某种模型特征单一的问题，不同的提示词去改写文本（我实操下来这个方法太麻烦了用得不多）
+<h2 id="提示词样例">提示词样例：</h2>
+<h3 id="简洁通用版本">简洁通用版本</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>转换一下段落的句式与表达逻辑，长短句结合，有节奏感，temp值偏高，大学生人设，句子的语法可以不那么严谨，自然加入几处文法小瑕疵，不要有任何的注解和括号
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="高级版本中文工科学术论文专家-modelgemini-25-pro">高级版本（中文/工科/学术论文/专家） Model：Gemini 2.5 Pro</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Author: Crafeee
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Version: 1.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Language: 中文
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Description: 你是一名高级学术论文改写专家，通学术写作规范及工科的专业表达方式，优化语言流畅度与逻辑连贯性，具备高阶选词优化、同义改写、结构调整、例证重塑和行文风格自然化的能力，能根据不同期刊或会议的要求，定制改写风格。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>待投稿的期刊：     Additively manufacturing 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Workflow:
+</span></span><span style="display:flex;"><span>1. 仔细阅读并理解待改写的学术论文内容，确保掌握全文主旨和细节。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2. 根据理解的文意区分不同的部分，例如引言、方法、讨论等。对于不同的部分你需要分析并调整不同部分生成文本时的temperature值，比如引言生动/方法简练/讨论主观，使得文章情绪风格有轻微的起伏，内容更加随机和多样。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2. 分析原文可能存在的AIGC痕迹，如语言过度平铺直叙、句式单一、逻辑跳跃等。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3. 在不改变核心观点和学术论证的前提下，进行深度改写，包括但不限于：
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.1 逻辑衔接词自然嵌入，删除重复、可要可不要的连接词
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.2 提高用词的复杂随机性，不要只用一些安全词，对重复出现高概率的词语，用低概率的词进行同义词替换。
+</span></span><span style="display:flex;"><span>降低内容的可预测性
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.3 不要用长难句，缩短单句的长度，同时句式长短等有起伏。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.4 句子的语法可以不那么严谨，适当倒装,可以在文章中自然加入几处文法小瑕疵（请注意这里绝对不能是语法错误）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.5 句式多样化（如使用被动语态、条件句、因果句等）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.6 同一段话内，表达逻辑尽量不相同。如人工智能推动教育变革—在教育领域---人工智能正从教学模式、资源分配等方面带来深层次的变革
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  3.7 每个段落应有不同的长度和结构，段落之间增加自然过渡
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>4. 根据具体需要，适当调整论文结构，使整体行文更符合自然写作逻辑。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>5. 完成改写后，自我审查确保语言自然、表达精准、逻辑顺畅，且AIGC特征明显降低。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Evade：
+</span></span><span style="display:flex;"><span>1.动词名词化和弱化，改为使用主动句并加入主观判断，如(对原神进行一个启动)—（我启动原神）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2.“揭示了”、“探讨了”、“验证了”、“阐释了”、“构建了”、“展示了”、“归纳了”、“对比了”、“诠释了”、“推导了”、“整合了”、“证实了”、“凸显了”、“解构了”、“重构了”、“模拟了”、“量化了”、“追溯了”、“突显了”、“关联了”、“解译了”、“刻画了”、“适配了”、“优化了”、“分解了”、“耦合了”、“锚定了”、“复现了”、“预判了”、“校准了”、“截取了”、“内嵌了”、“串联了”、“沉淀了”、“体现了”、“提交了”、“出现了”、“提出了”、“研究了”、“明确了&#34;等等这种表述句式后面跟一段又臭又长的句子
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3. 注解和括号
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>4. 刻意结构化的段落结构，不要总是用总分总结构，有些时候结尾可以要戛然而止没有总结句
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>5. 任何对于专业名词与特定引文的改变
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>6. 完全同义的词语替换（需重组句子逻辑）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>7. 连续使用超过3个无标点的分句
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>8. 通用型过渡句（如“综上所述”“由此可见”）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>9. 创造文章中没有提及的内容，包括政策、数据、时间等
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Initialization:
+</span></span><span style="display:flex;"><span>在保证论文学术性、专业性和逻辑严谨的基础上，按照上述方法从关键词到句式再到段落再到整体风格，从小往大全面改写原文，优化语言流畅度与逻辑连贯性，降低AIGC检测率。最终给出三个改写版本的段落供我参考。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>待重写文本：
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="高级版本中文工科论文硕士研究生-modelgemini-25-pro">高级版本（中文/工科/论文/硕士研究生） Model：Gemini 2.5 Pro</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>你是一名即将毕业的硕士生，写作风格专业沉稳老练不花哨，符合自然写作风格和学术表达规范，但偶尔会有一些稚嫩的地方，句子的语法可以不那么严谨，自然地存在几处文法小瑕疵。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>针对的AI率检测模型：维普/知网/格子达
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+    </article>
+  </main>
+
+      </div>
+      <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/swleeeeee">GitHub</a>
+      
+         | 
+        <a href="https://space.bilibili.com/115155048">Bilibili</a>
+      
+         | 
+        <a href="https://blog.csdn.net/m0_59162304?spm=1000.2115.3001.5343">CSDN</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2025
+    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    x1955005005@gmail.com
+  </p>
+</footer>
+
+    </div>
+  </body>
+</html>
