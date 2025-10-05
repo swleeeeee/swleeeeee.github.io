@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://swleeeeee.github.io/categories/</loc>
-    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+    <loc>https://swleeeeee.github.io/categories/additively-manufacturing/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://swleeeeee.github.io/categories/code/</loc>
-    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+    <loc>https://swleeeeee.github.io/categories/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://swleeeeee.github.io/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/tags/paper/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/posts/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/tags/research-skills/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/tags/sop/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/tags/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/posts/25-10-05/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/posts/25-09-29/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://swleeeeee.github.io/categories/code/</loc>
     <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://swleeeeee.github.io/tags/latex/</loc>
@@ -17,13 +41,7 @@
     <loc>https://swleeeeee.github.io/posts/25-09-18/</loc>
     <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://swleeeeee.github.io/posts/</loc>
-    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://swleeeeee.github.io/tags/syntax/</loc>
-    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://swleeeeee.github.io/tags/</loc>
     <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://swleeeeee.github.io/tags/composite-metarials/</loc>
@@ -62,9 +80,6 @@
     <loc>https://swleeeeee.github.io/tags/prompt/</loc>
     <lastmod>2025-09-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://swleeeeee.github.io/categories/additively-manufacturing/</loc>
-    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://swleeeeee.github.io/tags/additively-manufacturing/</loc>
     <lastmod>2025-08-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -75,9 +90,6 @@
     <lastmod>2025-08-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://swleeeeee.github.io/tags/hpiam-lab/</loc>
-    <lastmod>2025-08-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://swleeeeee.github.io/tags/paper/</loc>
     <lastmod>2025-08-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://swleeeeee.github.io/posts/25-08-01/</loc>
