@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Crafeeee&#39;s</description>
     <generator>Hugo</generator>
     <language>en-us,zh-cn</language>
-    <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://swleeeeee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conclusion on AM simulations</title>
+      <link>https://swleeeeee.github.io/posts/26-01-02/</link>
+      <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://swleeeeee.github.io/posts/26-01-02/</guid>
+      <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E7%9A%84%E8%83%8C%E6%99%AF&#34;&gt;增材仿真的背景&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E6%8C%89%E7%9B%AE%E7%9A%84%E7%9A%84%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E5%88%86%E7%B1%BB&#34;&gt;按目的的增材仿真分类&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%89%8D%E7%BD%AE%E7%9A%84%E5%A4%84%E7%90%86&#34;&gt;前置的处理&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E5%8E%9F%E7%90%86&#34;&gt;增材仿真原理&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E5%85%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E6%99%AF&#34;&gt;全过程图景&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E8%AF%A6%E7%BB%86%E5%8E%9F%E7%90%86&#34;&gt;详细原理&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E6%A8%A1%E6%8B%9F%E4%B8%AD%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E7%89%B9%E5%BE%81&#34;&gt;模拟中需要考虑的特征&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95&#34;&gt;验证方法&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#%E4%BB%BF%E7%9C%9F%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%89%8D%E6%99%AF&#34;&gt;仿真的应用与前景&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;增材仿真的背景&#34;&gt;增材仿真的背景&lt;/h1&gt;&#xA;&lt;p&gt;In previous studies, numerical models simulated the heat transfer and fluid flow of molten pool dynamics with an in-depth investigation of the effects of the process parameters. A laser weldinig model was established by Raghavan et al ［18］ to study how changes in processing parameters affected the relationships between top surface and subsurface temperatures with solidification parameters. It is unfortunate that the surface of the molten pool was fixed and the recoil pressure was not considered, as this has an influence on the geometrical shape of the molten pool. A few years later, Fan et al ［19］ established a two-dimensional （2D） continuum model and adopted the volume-of-fluid （VOF） method to realize the modeling of free-surface flow in the molten pool. Then Xia et al ［20］ realized a three-dimensional （3D） VOF model of the molten pool of SLM, studied the Marangoni effect on molten pool flow，and discovered its relation to defects. In 2014, Klassen et al［21］ built a 2D evaporation model using lattice Boltzmann free surface method, solving the hydrodynamics as well as the thermodynamics of the molten material, taking into account the mass and energy losses due to evaporation and the recoil pressure acting on the melt pool in the selective electron beam melting process. In 2016, Khairallah et al ［22］ established a discrete powder model and realized the modeling of a molten pool on a discrete powder bed, and demonstrated the significant effect of recoil pressure and Marangoni convection in the laser powder bed fusion of 316L stainless steel.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Literature reading, Review 2</title>
       <link>https://swleeeeee.github.io/posts/25-10-12/</link>
@@ -31,9 +38,9 @@
     </item>
     <item>
       <title>Latex Syntax and paper writing</title>
-      <link>https://swleeeeee.github.io/posts/25-09-18/</link>
+      <link>https://swleeeeee.github.io/posts/25-09-18-format/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://swleeeeee.github.io/posts/25-09-18/</guid>
+      <guid>https://swleeeeee.github.io/posts/25-09-18-format/</guid>
       <description>&lt;p&gt;Reference:&lt;a href=&#34;https://www.bilibili.com/video/BV1no4y1U7At/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=6ed4355279e79869f34ed924af694b1d&#34;&gt;b站-LaTeX公式保姆级教程 (以及其中的各种细节)&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;relative ref: &lt;a href=&#34;https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference&#34;&gt;MathJax basic tutorial and quick reference&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;希腊字母&#34;&gt;希腊字母&lt;/h1&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&#xA;\alpha &amp;amp;\quad \beta \quad \gamma,\Gamma \\&#xA;\delta,\Delta &amp;amp;\quad \epsilon,\varepsilon \quad \zeta \\&#xA;\eta &amp;amp;\quad \theta,\vartheta,\Theta \quad \iota \\&#xA;\kappa &amp;amp;\quad \lambda,\Lambda \quad \mu \\&#xA;\nu &amp;amp;\quad \xi,\Xi \quad o \\&#xA;\pi,\varpi,\Pi &amp;amp;\quad \rho,\varrho \quad \sigma,\varsigma,\Sigma \\&#xA;\tau &amp;amp;\quad \upsilon,\Upsilon \quad \phi,\varphi,\Phi \\&#xA;\chi &amp;amp;\quad \psi,\Psi \quad \omega,\Omega&#xA;\end{align}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&#xA;\varGamma &amp;amp;\quad \varDelta \quad \varTheta \quad \varLambda \\&#xA;\varXi &amp;amp;\quad \varPi \quad \varSigma \quad \varUpsilon \\&#xA;\varPhi &amp;amp;\quad \varPsi \quad \varOmega&#xA;\end{align}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>

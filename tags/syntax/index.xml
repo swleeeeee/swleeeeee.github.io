@@ -10,9 +10,9 @@
     <atom:link href="https://swleeeeee.github.io/tags/syntax/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Latex Syntax and paper writing</title>
-      <link>https://swleeeeee.github.io/posts/25-09-18/</link>
+      <link>https://swleeeeee.github.io/posts/25-09-18-format/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://swleeeeee.github.io/posts/25-09-18/</guid>
+      <guid>https://swleeeeee.github.io/posts/25-09-18-format/</guid>
       <description>&lt;p&gt;Reference:&lt;a href=&#34;https://www.bilibili.com/video/BV1no4y1U7At/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=6ed4355279e79869f34ed924af694b1d&#34;&gt;b站-LaTeX公式保姆级教程 (以及其中的各种细节)&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;relative ref: &lt;a href=&#34;https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference&#34;&gt;MathJax basic tutorial and quick reference&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;希腊字母&#34;&gt;希腊字母&lt;/h1&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&#xA;\alpha &amp;amp;\quad \beta \quad \gamma,\Gamma \\&#xA;\delta,\Delta &amp;amp;\quad \epsilon,\varepsilon \quad \zeta \\&#xA;\eta &amp;amp;\quad \theta,\vartheta,\Theta \quad \iota \\&#xA;\kappa &amp;amp;\quad \lambda,\Lambda \quad \mu \\&#xA;\nu &amp;amp;\quad \xi,\Xi \quad o \\&#xA;\pi,\varpi,\Pi &amp;amp;\quad \rho,\varrho \quad \sigma,\varsigma,\Sigma \\&#xA;\tau &amp;amp;\quad \upsilon,\Upsilon \quad \phi,\varphi,\Phi \\&#xA;\chi &amp;amp;\quad \psi,\Psi \quad \omega,\Omega&#xA;\end{align}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align}&#xA;\varGamma &amp;amp;\quad \varDelta \quad \varTheta \quad \varLambda \\&#xA;\varXi &amp;amp;\quad \varPi \quad \varSigma \quad \varUpsilon \\&#xA;\varPhi &amp;amp;\quad \varPsi \quad \varOmega&#xA;\end{align}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>Conclusion on AM simulations | Crafeeee&#39;s</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError: false,
+        strict: false
+    });"></script>
+
+
+<style>
+.katex {
+    font-size: 1.1em;
+}
+
+.katex-display {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+ 
+table .katex {
+    font-size: 0.9em;
+}
+
+ 
+.katex-inline {
+    margin: 0 0.1em;
+}
+</style>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <div id="root">
+      <header>
+  <div id="brand">
+    <a class="icon-link" href="https://swleeeeee.github.io/">
+      <img
+        class="icon"
+        src="/images/brandIcon.svg"
+      />
+    </a>
+    <div class="text">
+      <a href="https://swleeeeee.github.io/"><h1>Crafeeee&#39;s</h1></a>
+      <h3>Gains don&#39;t stop</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/categories/"><b>Categories</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+      <div id="content">
+        
+  <main>
+    <article>
+      <h1 class="title">Conclusion on AM simulations</h1>
+      <h3 class="subtitle">comprehensive understanding</h3>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2026-01-02</time>
+    <span>in</span>
+    
+      <a href="/categories/additively-manufacturing">additively manufacturing</a>
+  </strong>
+  <span> • 630 words</span>
+  
+  
+    <div>
+      <span>Tags:</span>
+      
+        <a href="/tags/simulations">Simulations</a>
+    </div>
+  
+</div>
+
+      <div class="content"><h2 id="目录">目录</h2>
+<ul>
+<li><a href="#%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E7%9A%84%E8%83%8C%E6%99%AF">增材仿真的背景</a></li>
+<li><a href="#%E6%8C%89%E7%9B%AE%E7%9A%84%E7%9A%84%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E5%88%86%E7%B1%BB">按目的的增材仿真分类</a></li>
+<li><a href="#%E5%89%8D%E7%BD%AE%E7%9A%84%E5%A4%84%E7%90%86">前置的处理</a></li>
+<li><a href="#%E5%A2%9E%E6%9D%90%E4%BB%BF%E7%9C%9F%E5%8E%9F%E7%90%86">增材仿真原理</a>
+<ul>
+<li><a href="#%E5%85%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E6%99%AF">全过程图景</a></li>
+<li><a href="#%E8%AF%A6%E7%BB%86%E5%8E%9F%E7%90%86">详细原理</a></li>
+<li><a href="#%E6%A8%A1%E6%8B%9F%E4%B8%AD%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E7%89%B9%E5%BE%81">模拟中需要考虑的特征</a></li>
+</ul>
+</li>
+<li><a href="#%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95">验证方法</a></li>
+<li><a href="#%E4%BB%BF%E7%9C%9F%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E5%89%8D%E6%99%AF">仿真的应用与前景</a></li>
+</ul>
+<h1 id="增材仿真的背景">增材仿真的背景</h1>
+<p>In previous studies, numerical models simulated the heat transfer and fluid flow of molten pool dynamics with an in-depth investigation of the effects of the process parameters. A laser weldinig model was established by Raghavan et al ［18］ to study how changes in processing parameters affected the relationships between top surface and subsurface temperatures with solidification parameters. It is unfortunate that the surface of the molten pool was fixed and the recoil pressure was not considered, as this has an influence on the geometrical shape of the molten pool. A few years later, Fan et al ［19］ established a two-dimensional （2D） continuum model and adopted the volume-of-fluid （VOF） method to realize the modeling of free-surface flow in the molten pool. Then Xia et al ［20］ realized a three-dimensional （3D） VOF model of the molten pool of SLM, studied the Marangoni effect on molten pool flow，and discovered its relation to defects. In 2014, Klassen et al［21］ built a 2D evaporation model using lattice Boltzmann free surface method, solving the hydrodynamics as well as the thermodynamics of the molten material, taking into account the mass and energy losses due to evaporation and the recoil pressure acting on the melt pool in the selective electron beam melting process. In 2016, Khairallah et al ［22］ established a discrete powder model and realized the modeling of a molten pool on a discrete powder bed, and demonstrated the significant effect of recoil pressure and Marangoni convection in the laser powder bed fusion of 316L stainless steel.</p>
+<p><a href="https://doi.org/10.1088/1361-6463/aaee04">Zhang, T., Li, H., Liu, S., Shen, S., Xie, H., Shi, W., Zhang, G., Shen, B., Chen, L., Xiao, B., Wei, M., 2019. Evolution of molten pool during selective laser melting of ti–6Al–4V. Appl. Phys.</a></p>
+<h1 id="按目的的增材仿真分类">按目的的增材仿真分类</h1>
+<ol>
+<li>
+<p>热应力分析的有限元方法
+宏观；网格状态：生死单元法；热源设置为 surface heat flux；模型表面的散热规则由Surface film condition定义</p>
+</li>
+<li>
+<p>模拟熔池金属液流动的CFD法
+介观；网格状态：VOF法（或者levelset）；热源为高斯热源+光追；考虑随时间变化的瞬态响应；考虑相变；稳态/瞬态；蒸发/对流/辐射 散热</p>
+</li>
+<li>
+<p>微观组织模拟的相场法(Phase Field, PF）与元胞自动机 （Cellular Automaton, CA）
+微观；用于模拟晶粒生长；PF（单个枝晶演化）较CA（整体铸件晶粒形状）分辨率更高；PF偏微分方程 自由最小能量化驱动，CA离散规则 局部转变概率驱动</p>
+</li>
+</ol>
+<h1 id="前置的处理">前置的处理</h1>
+<ol>
+<li>离散颗粒生成</li>
+<li>粉末刮刀铺设（离散元仿真）</li>
+<li>粉末预热与轻度烧结</li>
+</ol>
+<h1 id="增材仿真原理">增材仿真原理</h1>
+<h2 id="全过程图景">全过程图景</h2>
+<p><img src="../posts/pic/26-01-02-0.png" alt=""></p>
+<ol>
+<li><strong>第一阶段：能量注入 (The Spark)</strong>
+一切的开始，激光打在了粉末床上。
+<ul>
+<li>高斯热源 (Gaussian Source)：激光不是均匀的饼，而是中间强、边缘弱的“钟形曲线” ($q(r,z)$)。</li>
+<li>吸收率 ($\eta$)：粉末床因为光线多次反射（陷光效应），比平板更“吸热”。</li>
+</ul>
+</li>
+<li><strong>第二阶段：相变与界面 (The Transformation)</strong>
+金属吸热后熔化，世界分成了三部分：气、液、固。
+<ul>
+<li>VOF 方程：给流体“贴标签”，划清了哪里是金（$F=1$），哪里是气（$F=0$），捕捉到了自由表面。</li>
+<li>糊状区模型 (Mushy Zone)：在固液交界处（森林），利用 Carman-Kozeny 阻力 ($S_m$)，给流体施加“自动刹车”，让液体变成固体时速度归零。</li>
+</ul>
+</li>
+<li><strong>第三阶段：狂暴的流动 (The Dynamics)</strong>	
+熔池不是静止的湖水，而是剧烈的战场。三大力量在此博弈：
+向下钻的“钻头” —— 蒸发反冲压力 ($P_{rec}$)
+<ul>
+<li>原理：高温导致原子气化喷射，产生反作用力。</li>
+<li>后果：把熔池表面狠狠压下去，形成匙孔 (Keyhole)。</li>
+<li>注意：由于是开放环境，压力要打折（系数 $\approx 0.54$）。
+向外拉的“传送带” —— 马兰戈尼力 (Marangoni effect)</li>
+<li>原理：中心热（张力小）、边缘冷（张力大）。液体被边缘“扯”过去。</li>
+<li>后果：决定了熔池是宽扁（外流）还是深窄（内流）。
+维持形状的“皮肤” —— 表面张力</li>
+<li>原理：想让表面积最小（变成球）。</li>
+<li>后果：如果这一项太强而润湿不好，就会导致球化 (Balling)。</li>
+</ul>
+</li>
+<li><strong>第四阶段：能量耗散 (The Cooling)</strong>
+热量最终必须要散出去，熔池才能凝固成型。
+<ul>
+<li>蒸发冷却 (Evaporative Cooling)：绝对主力。原子逃逸带走潜热 ($L_v$)，限制了熔池的最高温。</li>
+<li>辐射冷却 (Radiative)：高温辅助。遵循 $T^4$ 定律，发光散热。</li>
+<li>对流冷却 (Convective)：跑龙套。保护气吹风散热，微乎其微。</li>
+</ul>
+</li>
+</ol>
+<h2 id="详细原理">详细原理</h2>
+<div>
+	<iframe src="[../../../themes/smigle/static/js/pdfjs/web/verwer.html]?file=../../../content/posts/pdf/01-09.pdf"width="100%"height="800px"></iframe>
+</div>
+<p><a href="https://doi.org/10.1016/j.addma.2019.100909">Cook, P.S., Murphy, A.B., 2020. Simulation of melt pool behaviour during additive manufacturing: Underlying physics and progress. Addit. Manuf. 31, 100909. https://doi.org/10.1016/j.addma.2019.100909</a></p>
+<h3 id="假设">假设</h3>
+<p><strong>层流假设</strong>，主要是不考虑实际工况中的湍流，即流体是有序流动，无随机漩涡的。而实际工况中当激光功率过高导致匙孔效应（Keyhole）产生剧烈蒸汽反冲压力时，或者流速极快（如几米每秒）时，局部雷诺数可能瞬间飙升，产生湍流。</p>
+<p><strong>牛顿流体假设</strong>，本身牛顿流体的假设就是将流体的剪切力简化为 动态粘度*剪切应变率，即动态粘度和剪切应变率无关，只与温度以及压力等物性有关系，是一个线性关系；尽管实际生活中，动态粘度随着温度升高而降低，现在做进一步的简化：假设动态粘度这一项与温度没有依赖关系。这是一个简化计算域、降低计算成本的方法。而在实际增材打印中，在糊状区（Mushy Zone），即固液共存区，流体中悬浮着固体颗粒，这时它表现得更像泥浆（非牛顿流体），粘度会极其复杂。</p>
+<p><strong>不可压假设</strong>，即速度场的散度为0，（ $ \delta \cdot u = 0 $ ），即速度场无源，密度在连续性方程与惯性项中被视为常数，而上面提到的仅在动量方程中的浮力考虑变化，又被称为布辛涅司克近似（Boussinesq Approximation），这样解耦压力与密度，可以用较小的代价模拟出热上冷下的自然对流，在除特定场景外其他CFD应用中都可以适用：遭受高压冲击的环境以及非常规性高压环境的仿真场景（深海）。而在实际打印中，如果温差导致密度变化较大，如在激光作用下产生了金属蒸汽，气体是高度可压缩的，或者或者存在孔隙/气泡（空洞被压缩），这个假设就很危险了。最重要的思路就是，我们不是把整个流场都当成不可压缩的，而是通过解耦（Decoupling）的方法，给质量方程人为增加了一个负的质量源项，并通常采用混合相模型，液体不可压，气体可压，并通过力的“等效替代”来间接帮助描述蒸汽反冲的过程与处理气体膨胀与孔洞问题。
+$$
+\rho \approx \rho_0 [1-\beta(\T-\T_0)]
+$$</p>
+<h3 id="基本方程">基本方程</h3>
+<p>两个基本方程（质量/动量）构成的FVM（有限体积法），用于将空间划分为网格，并求解每个网格上的物理量以及网格面的流体通量；而VOF方法是在此离散框架下，在标准的动量与连续性方程之外，额外求解一个体积分数的对流方程，其本质是一种多项流的界面捕捉方法。</p>
+<p>热守恒方程：每一个流体微团，（Fluid Parcel）、都携带一定的焓值 $h$。当激光在前方加热产生高温液态金属时，如果流体具有向后的速度 $\mathbf(v)$，它就会像一辆装满热量的卡车，将能量迅速运往熔池后端。
+由于流速 $\mathbf(v)$ 的大小受温度梯度的驱动（如马兰戈尼效应），这形成了一个强耦合过程：温度差产生流动 $\rightarrow$ 流动改变热量分布 $\rightarrows热量分布反过来改变温度差。</p>
+<ol>
+<li>非稳态项（Unsteady term.局部能量随时间的变化率,在物理上意味着热容、热惯性，用于描述能量储存的过程)</li>
+<li>对流项 （Advection term随流体流动而被带走的能量，是被动的搬运，取决于宏观的速度场）</li>
+<li>扩散项 （Diffusion/Conduction遵循傅里叶定律的热传导，热量从高温向低温扩散，是自发的传递，取决于温度差）</li>
+<li>源项（Source term系统的外部能量交换，例如激光热源功率）</li>
+</ol>
+<p>考虑金属相变，采用多孔介质法 ，将固液共存区视为一种“海绵”状结构（多孔介质），液态金属在其中流动会受到巨大的粘性阻力。
+当 液相率 $\alpha$ 趋近于 0（固态）时，该项变得极大，迫使流体速度 $\mathbf{v}$ 降为零。</p>
+<p>Mushy zone 的常数C为松弛因子，相当于给一个阻尼，让他在能量/动量梯度大的地方算得细一点，不影响最终结果</p>
+<h3 id="源项">源项</h3>
+<p>动量源项
+$$
+S_m($ surface $)=\sigma \kappa \mathbf{n}+\frac{\partial \sigma}{\partial T}\left[\nabla_s T\right]
+$$
+• 第一项（毛细压力/曲率）：
+作用：它试图让表面积最小化（变得更圆）。
+现象：这就是导致球化（Balling）的元凶。如果熔池长径比过大（像一根细水柱），这一项会切断熔池，形成独立的液滴。
+• 第二项（马兰戈尼力）：
+作用：由温差驱动流体。通常 ${\partial \sigma}{\partial T}$ 是负值，意味着流体从高温（中心）流向低温（边缘）。
+现象：这是让熔池变宽、变平的主要动力。如果你的材料中含有活性元素（如硫、氧），${\partial \sigma}{\partial T}$ 可能变为正值，流体反向流动，导致熔池变得深而窄。</p>
+<p>激光注入能量 —温度升高（Eq 4）—&gt;固体变成液体（Eq 5）-&gt;阻力消失（Eq 7） &gt;表面张力拉扯液体流动（Eq10） 对流把热量带向四周（Eq 4回路）。</p>
+<h3 id="反冲压力">反冲压力</h3>
+<p>当激光能量极高，把金属加热到接近甚至超过沸点时，表面的金属原子会获得足够的动能，变成气体（蒸气）飞出去。
+牛顿第三定律：就像火箭喷气一样，大量原子高速向上飞出，会给液面一个向下的反作用力。这个力就是反冲压力。
+后果：这个压力非常大，能把液态金属表面“压”下去，钻出一个深坑。这就是**Keyhole（匙孔/深熔孔）**模式的成因。
+蒸气压 $P_s$ 不等于直接得到了反冲压力 $P_{rec}$，注意推导得到的反冲压力的进一步考量</p>
+<h3 id="热源">热源</h3>
+<p><img src="../posts/pic/26-01-02-1.png" alt="">
+表面加热 vs体加热
+1.Beer-Lambert（深度分布法）：
+• 效果：热量是分布在颗粒整个体积内的。
+• 物理图景：颗粒像是在微波炉里加热，里外一起热。
+2. Ray-Tracing（射线法）：
+• 效果：热量高度集中在颗粒的表面 （Surface）。
+• 物理后果：这导致颗粒表面优先熔化。
+• 仿真价值：表面熔化会加速颗粒间的颈部形成（Sintering neck），从而极大增强颗粒间的热传导。这是 Beer-Lambert 模型无法捕捉到的物理细节，也是为什么在微观尺度研究中必须用射线追踪的原因。</p>
+<h2 id="模拟中需要考虑的特征">模拟中需要考虑的特征</h2>
+<ol start="0">
+<li>表面力（气-液界面上的物理现象）是动量方程在边界上的“应力平衡条件”（Stress Balance Condition）。</li>
+<li>光线追踪Y/N</li>
+<li>离散颗粒（碰撞？）/连续介质</li>
+<li>瞬态流动CFD/稳态CFD</li>
+<li>自由界面追踪VOF/Level set</li>
+<li>Marangoni效应</li>
+<li>蒸发（蒸汽反冲压力）</li>
+<li>相变（金属蒸发导致的质量源项，混合相模型，Mushy zone 流动阻力）</li>
+<li>蒸发冷却</li>
+<li>辐射冷却</li>
+<li>对流冷却</li>
+<li>热源模型UDF</li>
+<li>粉末预热与烧结（非必要）</li>
+</ol>
+<p>变量考虑时间相关之后对于增材仿真有什么影响，为什么考虑时间之后，瞬态CFD仿真就能做到稳态仿真做不到的模拟液面自由表面和飞溅等细节
+ 
+1.物理上，力的平衡与非平衡：时间的引入进而带出加速度，从而在力发生突变的时候（如激光冲击到粉末床中稍大的粉末），允许非平衡状态（牛顿第二定律）;而稳态在每个瞬间都要求达到力的平衡
+2.几何上，自由表面的“拓扑改变” ：稳态计算要求网格和流场是连续的，无法处理破裂的边界，自然就没办法模拟飞溅等行为；瞬态通常采用VOF（voluem of fluid）方法，这种方法通常考虑 网格内部有多少比例是气，有多少比例是金属，这个比例是时间依赖的，每个网格的体积分数由气体与金属的比例决定，当在0，1之间时，就被认为是固液界面，离散化的网格界面通过界面重构算法处理之后，就可以模拟自由液面与飞溅（体积分数=0）
+3.数学上： 能够捕捉高频的不稳定性（波动），而不是将其平均化。
+4，最后仿真结果上，瞬态视频（Transient）： 画面一直在抖动，液面忽高忽低，偶尔会有小颗粒飞出去。这是在模拟“真实过程”。
+稳态视频（Steady-state）： 一张对称的有拖尾无飞溅的计算结果，（稳态本身没有时间概念，所以它无法生成“随时间变化”的视频。）</p>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>VOF (流体体积法)</th>
+          <th>Level Set (水平集法)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>存储的数据</td>
+          <td>百分比 (格子满/空)</td>
+          <td>距离 (离界面多远)</td>
+      </tr>
+      <tr>
+          <td>界面的形态</td>
+          <td>阶梯状/马赛克 (不连续)</td>
+          <td>光滑曲线 (连续函数)</td>
+      </tr>
+      <tr>
+          <td>曲率计算 ($\kappa$)</td>
+          <td>很差 (必须猜/拟合)</td>
+          <td>极好 (直接对 $\phi$ 求导即可)</td>
+      </tr>
+      <tr>
+          <td>质量守恒</td>
+          <td>完美 (有多少格子就是多少水)</td>
+          <td>较差 (计算久了，水会&quot;凭空消失&quot;或&quot;变多&quot;)</td>
+      </tr>
+      <tr>
+          <td>主要用途</td>
+          <td>剧烈飞溅、大变形流动</td>
+          <td>精确的表面张力、气泡动力学</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="../posts/pic/26-01-02-2.png" alt=""></p>
+<p>马兰戈尼效应是通过动量方程的边界条件来引入的。并不是一个像重力那样的体积力，而是一个通过作用在气-液界面上的表面张力（剪切力）来影响熔池行为
+$$
+\tau=\mu \frac{\partial u}{\partial z}=\frac{d \gamma}{d T} \cdot \nabla T
+$$
+*温度差异： 熔池中心（激光直射点）极热，边缘较冷。
+*张力差异： 对于大多数纯金属，温度越高，表面张力越小（越“松”）；温度越低，表面张力越大（越“紧”）。
+*表面剪切力： 边缘的“紧”表面会把中心的“松”液体强行拉过去。</p>
+<p>纯金属（系数为负，＜0）
+*物理现象：表面张力：中心＜边缘。液体被拉向边缘。
+*流动方向：从中心向四周流（Centrifugal）。
+*仿真结果：这种强烈的向外流动会把热量带到边缘，导致熔池变得宽而浅（Wide and Shallow）。</p>
+<h1 id="验证方法">验证方法</h1>
+<h2 id="间接验证法">间接验证法</h2>
+<p>主要是依赖于单层单道仿真与实验制件最终冷却后的测量结果对比（事后分析），在此基础上进阶可以是趋势分析，主要指标有：1.熔池尺寸（深度与宽度）；表面特征（SEM观察扫描道表面形貌/粗糙度等）；内部孔隙率与微观组织如晶粒生长；残余应力与成分变化（XRD）；</p>
+<h2 id="直接验证法">直接验证法</h2>
+<p>高速X射线成像；高速摄像</p>
+<h1 id="仿真的应用与前景">仿真的应用与前景</h1>
+<p>仿真的应用主要是两种，一是预测（预测熔池形貌，预报构件性能，提供中间状态数据），一是解释机理（分析缺陷成因，分析微观组织演变）</p>
+<p>而我们只处理了介观层面的熔池仿真模型，实际上大多时候，是被用于佐证分析缺陷与微观组织演变，实际上是缺乏更直观的理解方案的，参考闫文韬在Computer Methods in Applied Mechanics ＆ Engineering发表的论文，他们提出了一种一体化系统模拟，用于解决3D打印缺陷。这是一种实验探究方法的仿真镜像方法，从熔池仿真到组织生长仿真到宏观性能仿真的全链路预测，具体如下：</p>
+<ol>
+<li>铺粉仿真＋热／流体力学数值模型计算，得出AM过程中熔池的温度场演变、多层多道熔化道演变、孔洞结构的形成等过程；</li>
+<li>提取1中计算的温度场分布、熔化道形貌、孔洞分布等状态数据，作为枝晶生长的元胞自动机模型的输入参数，预报构件的晶粒结构；</li>
+<li>将2中的结果作为材料的物性参数，预报构件的力学性能，疲劳寿命等宏观特征。</li>
+</ol>
+</div>
+    </article>
+  </main>
+
+      </div>
+      <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://github.com/swleeeeee">GitHub</a>
+      
+         | 
+        <a href="https://space.bilibili.com/115155048">Bilibili</a>
+      
+         | 
+        <a href="https://blog.csdn.net/m0_59162304?spm=1000.2115.3001.5343">CSDN</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2026
+    <a href="https://swleeeeee.github.io/"><strong>Crafeeee</strong></a>.
+    x1955005005@gmail.com
+  </p>
+</footer>
+
+    </div>
+  </body>
+</html>
