@@ -119,7 +119,7 @@ table .katex {
     
       <a href="/categories/additively-manufacturing">additively manufacturing</a>
   </strong>
-  <span> • 2388 words</span>
+  <span> • 2185 words</span>
   
   
     <div>
@@ -127,7 +127,8 @@ table .katex {
       
         <a href="/tags/simulations">Simulations</a>, 
         <a href="/tags/fortran">fortran</a>, 
-        <a href="/tags/secondary-develpoment">secondary develpoment</a>
+        <a href="/tags/secondary-develpoment">Secondary develpoment</a>, 
+        <a href="/tags/flow-3d">Flow-3D</a>
     </div>
   
 </div>
@@ -676,83 +677,298 @@ c添加一个稳定因子：密度相关：氩气密度为空气的1.4倍，1.29
  1000 continue    
       return
       end
-
-
-# 附表
-
-| VARIABLE | DESCRIPTION |
-|----------|-------------|
-| i | cell index in x-direction |
-| j | cell index in y-direction |
-| k | cell index in z-direction |
-| ijk_str | 3D cell index in structured domain |
-| ijk | 3D cell index in fluid sub-domain |
-| ijksd | 3D cell index in solid sub-domain |
-| ipjk | cell to right of cell ijk |
-| ipjksd | cell to right of cell ijksd |
-| imjk | cell to left of cell ijk |
-| imjksd | cell to left of cell ijksd |
-| ijpk | cell to back of cell ijk |
-| ijpksd | cell to back of cell ijksd |
-| ijmk | cell to front of cell ijk |
-| ijmksd | cell to front of cell ijksd |
-| ijkp | cell to top of cell ijk |
-| ijkpsd | cell to top of cell ijksd |
-| ijkm | cell to bottom of cell ijk |
-| ijkmsd | cell to bottom of cell ijksd |
-| iprl | first real cell index in x-direction |
-| iprr | last real cell index in x-direction |
-| jprf | first real cell index in y-direction |
-| jprbk | last real cell index in y-direction |
-| kprb | first real cell index in z-direction |
-| kprt | last real cell index in z-direction |
-| imax | total number of cells x-direction including boundary cells |
-| jmax | total number of cells y-direction including boundary cells |
-| kmax | total number of cells z-direction including boundary cells |
-| im1 | next to last cell in x-direction, rightmost real cell for all right boundary types except pressure boundaries and periodic boundaries |
-| im2 | 2nd to last cell in x-direction, rightmost real cell for right pressure boundaries and periodic boundaries |
-| jm1 | next to last cell in y-direction, backmost real cell for all back boundary types except pressure boundaries and periodic boundaries |
-| jm2 | 2nd to last cell in y-direction, backmost real cell for back pressure boundaries and periodic boundaries |
-| km1 | next to last cell in z-direction, upmost real cell for all top boundary types except pressure boundaries and periodic boundaries |
-| km2 | 2nd to last cell in z-direction, upmost real cell for top pressure boundaries and periodic boundaries |
-| nbl | index of the current mesh block |
-| nblcks | total number of mesh blocks |
-| t | time |
-| delt | time-step size |
-| ztest | =1.0e-20, a small real number slightly greater than zero |
-| em6 | =1.0e-6, test value for completely blocked cell |
-| emf | =1.0e-6, test value for existence of fluid in cell |
-| x(i) | mesh coordinate at right of cell ijk_str |
-| xi(i) | x-coordinate of cell center for cell ijk_str |
-| y(j) | mesh coordinate at back of cell ijk_str |
-| yj(j) | y-coordinate of cell center for cell ijk_str |
-| z(k) | mesh coordinate at top of cell ijk_str |
-| zk(k) | z-coordinate of cell center for cell ijk_str |
-| delx(i) | cell ijk_str size in x-direction |
-| dely(j) | cell ijk_str size in y-direction |
-| delz(k) | cell ijk_str size in z-direction |
-| rdx(i) | reciprocal of delx(i) in cell ijk_str |
-| rdy(i) | reciprocal of dely(i) in cell ijk_str |
-| rdz(i) | reciprocal of delz(i) in cell ijk_str |
-| rri(i) | correction factor for cylindrical coordinates, i.e., delta y at x(i) is dely(j)/rri(i) |
-| vf(ijk) | open volume fraction in cell |
-| afr(ijk) | open area fraction at right face |
-| afb(ijk) | open area fraction at back face |
-| aft(ijk) | open area fraction at top face |
-| u(ijk) | x-velocity at right face |
-| v(ijk) | y-velocity at back face |
-| w(ijk) | z-velocity at top face |
-| fn(ijk) | fluid fraction in cell at beginning of cycle |
-| f(ijk) | fluid fraction in cell at end of cycle |
-| p(ijk) | pressure in cell |
-| tn(ijk) | fluid temperature in cell |
-| tw(ijksd) | wall (solid) temperature in cell |
-| rhoe(ijk) | fluid density x specific energy in cell |
-| arint(ijk) | free-surface area in cell |
-| rho(ijk) | fluid density in cell (only for variable density) |
-| nf(ijk) | free surface indicator in cell&lt;br&gt;=0, interior fluid cell&lt;br&gt;=1 surface cell - fluid at left&lt;br&gt;=2 surface cell - fluid at right&lt;br&gt;=3 surface cell - fluid at front&lt;br&gt;=4 surface cell - fluid at back&lt;br&gt;=5 surface cell - fluid at bottom&lt;br&gt;=6 surface cell - fluid at top&lt;br&gt;=7 surface cell - cavitating cell&lt;br&gt;&gt;=8 void cell - void id number |
-| icstat(ijk_str) | cell type flag&lt;br&gt;= 0, mesh boundary cell or passive cell in which solution is neither computed nor interpolated&lt;br&gt;&gt; 0, active cell in which solution is found by solving conservation equations&lt;br&gt;&lt; 0, inter-block boundary cell in which solution is found by interpolation from another mesh block |
-</code></pre></div>
+</code></pre><h1 id="附表">附表</h1>
+<table>
+  <thead>
+      <tr>
+          <th>VARIABLE</th>
+          <th>DESCRIPTION</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>i</td>
+          <td>cell index in x-direction</td>
+      </tr>
+      <tr>
+          <td>j</td>
+          <td>cell index in y-direction</td>
+      </tr>
+      <tr>
+          <td>k</td>
+          <td>cell index in z-direction</td>
+      </tr>
+      <tr>
+          <td>ijk_str</td>
+          <td>3D cell index in structured domain</td>
+      </tr>
+      <tr>
+          <td>ijk</td>
+          <td>3D cell index in fluid sub-domain</td>
+      </tr>
+      <tr>
+          <td>ijksd</td>
+          <td>3D cell index in solid sub-domain</td>
+      </tr>
+      <tr>
+          <td>ipjk</td>
+          <td>cell to right of cell ijk</td>
+      </tr>
+      <tr>
+          <td>ipjksd</td>
+          <td>cell to right of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>imjk</td>
+          <td>cell to left of cell ijk</td>
+      </tr>
+      <tr>
+          <td>imjksd</td>
+          <td>cell to left of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>ijpk</td>
+          <td>cell to back of cell ijk</td>
+      </tr>
+      <tr>
+          <td>ijpksd</td>
+          <td>cell to back of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>ijmk</td>
+          <td>cell to front of cell ijk</td>
+      </tr>
+      <tr>
+          <td>ijmksd</td>
+          <td>cell to front of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>ijkp</td>
+          <td>cell to top of cell ijk</td>
+      </tr>
+      <tr>
+          <td>ijkpsd</td>
+          <td>cell to top of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>ijkm</td>
+          <td>cell to bottom of cell ijk</td>
+      </tr>
+      <tr>
+          <td>ijkmsd</td>
+          <td>cell to bottom of cell ijksd</td>
+      </tr>
+      <tr>
+          <td>iprl</td>
+          <td>first real cell index in x-direction</td>
+      </tr>
+      <tr>
+          <td>iprr</td>
+          <td>last real cell index in x-direction</td>
+      </tr>
+      <tr>
+          <td>jprf</td>
+          <td>first real cell index in y-direction</td>
+      </tr>
+      <tr>
+          <td>jprbk</td>
+          <td>last real cell index in y-direction</td>
+      </tr>
+      <tr>
+          <td>kprb</td>
+          <td>first real cell index in z-direction</td>
+      </tr>
+      <tr>
+          <td>kprt</td>
+          <td>last real cell index in z-direction</td>
+      </tr>
+      <tr>
+          <td>imax</td>
+          <td>total number of cells x-direction including boundary cells</td>
+      </tr>
+      <tr>
+          <td>jmax</td>
+          <td>total number of cells y-direction including boundary cells</td>
+      </tr>
+      <tr>
+          <td>kmax</td>
+          <td>total number of cells z-direction including boundary cells</td>
+      </tr>
+      <tr>
+          <td>im1</td>
+          <td>next to last cell in x-direction, rightmost real cell for all right boundary types except pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>im2</td>
+          <td>2nd to last cell in x-direction, rightmost real cell for right pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>jm1</td>
+          <td>next to last cell in y-direction, backmost real cell for all back boundary types except pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>jm2</td>
+          <td>2nd to last cell in y-direction, backmost real cell for back pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>km1</td>
+          <td>next to last cell in z-direction, upmost real cell for all top boundary types except pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>km2</td>
+          <td>2nd to last cell in z-direction, upmost real cell for top pressure boundaries and periodic boundaries</td>
+      </tr>
+      <tr>
+          <td>nbl</td>
+          <td>index of the current mesh block</td>
+      </tr>
+      <tr>
+          <td>nblcks</td>
+          <td>total number of mesh blocks</td>
+      </tr>
+      <tr>
+          <td>t</td>
+          <td>time</td>
+      </tr>
+      <tr>
+          <td>delt</td>
+          <td>time-step size</td>
+      </tr>
+      <tr>
+          <td>ztest</td>
+          <td>=1.0e-20, a small real number slightly greater than zero</td>
+      </tr>
+      <tr>
+          <td>em6</td>
+          <td>=1.0e-6, test value for completely blocked cell</td>
+      </tr>
+      <tr>
+          <td>emf</td>
+          <td>=1.0e-6, test value for existence of fluid in cell</td>
+      </tr>
+      <tr>
+          <td>x(i)</td>
+          <td>mesh coordinate at right of cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>xi(i)</td>
+          <td>x-coordinate of cell center for cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>y(j)</td>
+          <td>mesh coordinate at back of cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>yj(j)</td>
+          <td>y-coordinate of cell center for cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>z(k)</td>
+          <td>mesh coordinate at top of cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>zk(k)</td>
+          <td>z-coordinate of cell center for cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>delx(i)</td>
+          <td>cell ijk_str size in x-direction</td>
+      </tr>
+      <tr>
+          <td>dely(j)</td>
+          <td>cell ijk_str size in y-direction</td>
+      </tr>
+      <tr>
+          <td>delz(k)</td>
+          <td>cell ijk_str size in z-direction</td>
+      </tr>
+      <tr>
+          <td>rdx(i)</td>
+          <td>reciprocal of delx(i) in cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>rdy(i)</td>
+          <td>reciprocal of dely(i) in cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>rdz(i)</td>
+          <td>reciprocal of delz(i) in cell ijk_str</td>
+      </tr>
+      <tr>
+          <td>rri(i)</td>
+          <td>correction factor for cylindrical coordinates, i.e., delta y at x(i) is dely(j)/rri(i)</td>
+      </tr>
+      <tr>
+          <td>vf(ijk)</td>
+          <td>open volume fraction in cell</td>
+      </tr>
+      <tr>
+          <td>afr(ijk)</td>
+          <td>open area fraction at right face</td>
+      </tr>
+      <tr>
+          <td>afb(ijk)</td>
+          <td>open area fraction at back face</td>
+      </tr>
+      <tr>
+          <td>aft(ijk)</td>
+          <td>open area fraction at top face</td>
+      </tr>
+      <tr>
+          <td>u(ijk)</td>
+          <td>x-velocity at right face</td>
+      </tr>
+      <tr>
+          <td>v(ijk)</td>
+          <td>y-velocity at back face</td>
+      </tr>
+      <tr>
+          <td>w(ijk)</td>
+          <td>z-velocity at top face</td>
+      </tr>
+      <tr>
+          <td>fn(ijk)</td>
+          <td>fluid fraction in cell at beginning of cycle</td>
+      </tr>
+      <tr>
+          <td>f(ijk)</td>
+          <td>fluid fraction in cell at end of cycle</td>
+      </tr>
+      <tr>
+          <td>p(ijk)</td>
+          <td>pressure in cell</td>
+      </tr>
+      <tr>
+          <td>tn(ijk)</td>
+          <td>fluid temperature in cell</td>
+      </tr>
+      <tr>
+          <td>tw(ijksd)</td>
+          <td>wall (solid) temperature in cell</td>
+      </tr>
+      <tr>
+          <td>rhoe(ijk)</td>
+          <td>fluid density x specific energy in cell</td>
+      </tr>
+      <tr>
+          <td>arint(ijk)</td>
+          <td>free-surface area in cell</td>
+      </tr>
+      <tr>
+          <td>rho(ijk)</td>
+          <td>fluid density in cell (only for variable density)</td>
+      </tr>
+      <tr>
+          <td>nf(ijk)</td>
+          <td>free surface indicator in cell<br>=0, interior fluid cell<br>=1 surface cell - fluid at left<br>=2 surface cell - fluid at right<br>=3 surface cell - fluid at front<br>=4 surface cell - fluid at back<br>=5 surface cell - fluid at bottom<br>=6 surface cell - fluid at top<br>=7 surface cell - cavitating cell<br>&gt;=8 void cell - void id number</td>
+      </tr>
+      <tr>
+          <td>icstat(ijk_str)</td>
+          <td>cell type flag<br>= 0, mesh boundary cell or passive cell in which solution is neither computed nor interpolated<br>&gt; 0, active cell in which solution is found by solving conservation equations<br>&lt; 0, inter-block boundary cell in which solution is found by interpolation from another mesh block</td>
+      </tr>
+  </tbody>
+</table>
+</div>
     </article>
   </main>
 
