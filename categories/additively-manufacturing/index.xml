@@ -6,8 +6,15 @@
     <description>Recent content in Additively Manufacturing on Crafeeee&#39;s</description>
     <generator>Hugo</generator>
     <language>en-us,zh-cn</language>
-    <lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://swleeeeee.github.io/categories/additively-manufacturing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UDF learning on Flow-3D AM</title>
+      <link>https://swleeeeee.github.io/posts/26-02-02/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://swleeeeee.github.io/posts/26-02-02/</guid>
+      <description>&lt;h1 id=&#34;参考资料&#34;&gt;参考资料&lt;/h1&gt;&#xA;&lt;p&gt;Flow-3D Help/customization&#xA;算例&lt;/p&gt;&#xA;&lt;h1 id=&#34;算例特征与局限性&#34;&gt;算例特征与局限性&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 光线追踪Y/N&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 离散颗粒（碰撞？）/连续介质&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 瞬态流动CFD/稳态CFD，哪个代码计算两个基本公式（质量/动量守恒）&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 自由界面追踪VOF/Level set&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Marangoni效应&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 相变（金属蒸发导致的质量源项，混合相模型，Mushy zone 流动阻力）&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 蒸发冷却&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 辐射冷却&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 对流冷却&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 热源模型UDF&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 蒸发（蒸汽反冲压力）&#xA;铺粉过程没有模拟;粉末在flow3D的模拟中是固定的，流动性也没有模拟&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;一个时间增量步内vof界面循环的流程&#34;&gt;一个时间增量步内VOF界面循环的流程&lt;/h1&gt;&#xA;&lt;p&gt;A[时间步开始 t] &lt;br&gt;&#xA;B[1. 准备速度场 (动量方程)] （求解器计算重力、粘性力、压力梯度） &lt;br&gt;&#xA;C(施加反冲压力)调用 forcal.F（转化为显示的体积力faux施加在动量方程中，获得改变动量的加速度） &lt;br&gt;&#xA;D[计算新速度 u, v, w]  &lt;br&gt;&#xA;E[2. VOF 界面重构 (Reconstruction)]  &lt;br&gt;&#xA;F[3. VOF 输运/通量计算 (Advection)]  （计算通量+移交体积）&lt;br&gt;&#xA;G[4. 更新几何 F 和 nf (Update)] &lt;br&gt;&#xA;H[5. 能量输运与源项] &lt;br&gt;&#xA;I(蒸发冷却)调用 heatfl.F &lt;br&gt;&#xA;J(激光加热)调用 qsadd.F &lt;br&gt;&#xA;K[时间步结束 t + dt] &lt;br&gt;&lt;/p&gt;&#xA;&lt;p&gt;Question：物理直觉上，应该是物理直觉（热 —力 — 运动），即先计算热力再进行VOF运输，那为什么热相关的源项计算是放在循环的尾部，而动力相关的源项是放在循环的开头（力-运动-热）？虽然顺序上依然是连贯的，调整时间步的顺序有什么非做不可的点？&lt;br&gt;&#xA;Answer：FLOW-3D 的时间步循环（SOLA-VOF 算法）设置；如果先计算热，各个旧位置网格获能—根据动量方程求解进行VOF运输与界面重构—得到新位置网格，而储存能量的网格与流体体积分数的网格储存信息是分离的，这会导致储存能量信息的旧网格与储存物质信息的新网格不是映射在相同的模型里，储存物质信息的新网格是真实的，而储存能量信息的旧网格没有及时更新被留在原来的网格里，会导致下个计算步错误。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Conclusion on AM simulations</title>
       <link>https://swleeeeee.github.io/posts/26-01-02/</link>
