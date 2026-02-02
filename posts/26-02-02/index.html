@@ -119,7 +119,7 @@ table .katex {
     
       <a href="/categories/additively-manufacturing">additively manufacturing</a>
   </strong>
-  <span> • 2414 words</span>
+  <span> • 2388 words</span>
   
   
     <div>
@@ -147,9 +147,9 @@ table .katex {
 <li><input disabled="" type="checkbox"> 辐射冷却</li>
 <li><input disabled="" type="checkbox"> 对流冷却</li>
 <li><input disabled="" type="checkbox"> 热源模型UDF</li>
-<li><input checked="" disabled="" type="checkbox"> 蒸发（蒸汽反冲压力）
-铺粉过程没有模拟;粉末在flow3D的模拟中是固定的，流动性也没有模拟</li>
+<li><input checked="" disabled="" type="checkbox"> 蒸发（蒸汽反冲压力）</li>
 </ul>
+<p>铺粉过程没有模拟;粉末在flow3D的模拟中是固定的，流动性也没有模拟</p>
 <h1 id="一个时间增量步内vof界面循环的流程">一个时间增量步内VOF界面循环的流程</h1>
 <p>A[时间步开始 t] <br>
 B[1. 准备速度场 (动量方程)] （求解器计算重力、粘性力、压力梯度） <br>
@@ -408,85 +408,81 @@ $$\vec{f}_{body} = P \cdot \nabla F$$</p>
 <p>为什么算两遍：
 代码随后会执行 goto(1,2,&hellip;) nff，这会将 inbr 指针移动到相邻的流体单元（内部单元）。作者的意图是使用表面单元 (ijk) 的梯度强度，来决定分配给内部邻居 (inbr) 的力的大小。反冲压力不仅作用在表面那一层网格，还“分摊”一部分给紧挨着的内部流体网格，并用表面的梯度强度作为权重。</p>
 <p>这里为什么是减去ii1、ii2：在 Fortran 语言中，数组是**列优先（Column-Major）**存储的。这意味着第一个索引（X方向）变化最快，第二个（Y）次之，第三个（Z）最慢。</p>
-<p>X 方向 (i)：内存里，网格 $(i, j, k)$ 和 $(i+1, j, k)$ 距离为1，所以代码里写 ijk - 1 或 ijk + 1。/br
-Y 方向 (j)：要从 $(i, j, k)$ 走到 $(i, j+1, k)$，你必须跨过这一整行所有的 X 网格。这一行有$N_x$个网格，这个“X方向总长度”被定义为 ii1。所以代码里写 ijk - ii1 或 ijk + ii1。/br
-Z 方向 (k)：从 $(i, j, k)$ 走到 $(i, j, k+1)$（上一层楼），你必须跨过这一层所有的 X 和 Y 网格（整个平面），这一层有$N_x \times N_y$个网格，这个“单层总面积”被定义为 ii2。所以代码里写 ijk - ii2 或 ijk + ii2。/br</p>
-<pre><code>  if(fn(ijk).ge.0.5) goto 8
-  ```fortran
-</code></pre>
-<p>goto(1,2,3,4,5,6) nff</p>
-<pre tabindex="0"><code>  1   continue
-           if(afr(ijk-1).gt.em6) inbr=ijk-1
-           vfac=delx(i-1)*rdx(i)
-           goto 8
-  2   continue
-           if(afr(ijk).gt.em6) inbr=ijk+1
-           vfac=delx(i+1)*rdx(i)
-           goto 8
-  3   continue
-           if(afb(ijk-ii1).gt.em6) inbr=ijk-ii1
-           vfac=dely(j-1)*rdy(j)
-           goto 8
-  4   continue
-           if(afb(ijk).gt.em6) inbr=ijk+ii1
-           vfac=dely(j+1)*rdy(j)
-           goto 8
-  5   continue
-           if(aft(ijk-ii2).gt.em6) inbr=ijk-ii2
-           vfac=delz(k-1)*rdz(k)
-           goto 8
-  6   continue
-           if(aft(ijk).gt.em6) inbr=ijk+ii2
-           vfac=delz(k+1)*rdz(k)
-
-
-
-  8   continue
-           cvol=vf(ijk)*delx(i)*dely(j)*delz(k)
-           if(inbr.ne.ijk) then
-             cvoln=cvol*vfac*vf(inbr)/vf(ijk)
-           else
-             cvoln=cvol
-           endif
-           denom=cvol+cvoln
-      call srfnorm(fn,ijk,snx,sny,snz,sar,leneax,0)
-c         apnrx=0.0
-c         apnry=0.0
-c         apnrz=1
-c         dotnorm=snx*apnrx+sny*apnry+snz*apnrz
-c         if(dotnorm.le.0) cycle
-      pforce =  papp * arint(ijk) 
-c      vforce= pforce/denom
-
-
-  if(fn(ijk).ge.0.5) goto 8
-如果当前网格的液体超过 50%，说明它足够“重”，能扛得住反冲力，直接跳到标号 8，不需要寻找邻居（inbr 保持为 ijk，即靠山是它自己）
-
-nff=6（下方是气体，表面朝下）。
+<p>X方向(i)：内存里，网格$(i, j, k)$和$(i+1, j, k)$距离为1，所以代码里写ijk - 1或ijk + 1。<br>
+Y方向(j)：要从$(i, j, k)$走到 $(i, j+1, k)$，你必须跨过这一整行所有的 X 网格。这一行有$N_x$个网格，这个“X方向总长度”被定义为 ii1。所以代码里写 ijk - ii1 或 ijk + ii1。<br>
+Z方向 (k)：从$(i, j, k)$走到$(i, j, k+1)$，必须跨过这一层所有的 X 和 Y 网格（整个平面），这一层有$N_x \times N_y$个网格，这个“单层总面积”被定义为ii2。所以代码里写ijk - ii2 或 ijk + ii2。<br></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">ijk</span><span class="p">).</span><span class="n">ge</span><span class="p">.</span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">goto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="n">nff</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">afr</span><span class="p">(</span><span class="n">ijk</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">-</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">delx</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">2</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">afr</span><span class="p">(</span><span class="n">ijk</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">+</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">delx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">3</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">afb</span><span class="p">(</span><span class="n">ijk</span><span class="o">-</span><span class="n">ii1</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">-</span><span class="n">ii1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">dely</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdy</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">4</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">afb</span><span class="p">(</span><span class="n">ijk</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">+</span><span class="n">ii1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">dely</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdy</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">5</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">aft</span><span class="p">(</span><span class="n">ijk</span><span class="o">-</span><span class="n">ii2</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">-</span><span class="n">ii2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">delz</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdz</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">6</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">aft</span><span class="p">(</span><span class="n">ijk</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="n">em6</span><span class="p">)</span><span class="w"> </span><span class="n">inbr</span><span class="o">=</span><span class="n">ijk</span><span class="o">+</span><span class="n">ii2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">vfac</span><span class="o">=</span><span class="n">delz</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rdz</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="mi">8</span><span class="w">   </span><span class="k">continue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">cvol</span><span class="o">=</span><span class="n">vf</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="o">*</span><span class="n">delx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">dely</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">delz</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="n">inbr</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">ijk</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="n">cvoln</span><span class="o">=</span><span class="n">cvol</span><span class="o">*</span><span class="n">vfac</span><span class="o">*</span><span class="n">vf</span><span class="p">(</span><span class="n">inbr</span><span class="p">)</span><span class="o">/</span><span class="n">vf</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">else</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="n">cvoln</span><span class="o">=</span><span class="n">cvol</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">endif</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">denom</span><span class="o">=</span><span class="n">cvol</span><span class="o">+</span><span class="n">cvoln</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">call</span><span class="w"> </span><span class="n">srfnorm</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="n">ijk</span><span class="p">,</span><span class="n">snx</span><span class="p">,</span><span class="n">sny</span><span class="p">,</span><span class="n">snz</span><span class="p">,</span><span class="n">sar</span><span class="p">,</span><span class="n">leneax</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">         </span><span class="n">apnrx</span><span class="o">=</span><span class="mf">0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">         </span><span class="n">apnry</span><span class="o">=</span><span class="mf">0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">         </span><span class="n">apnrz</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">         </span><span class="n">dotnorm</span><span class="o">=</span><span class="n">snx</span><span class="o">*</span><span class="n">apnrx</span><span class="o">+</span><span class="n">sny</span><span class="o">*</span><span class="n">apnry</span><span class="o">+</span><span class="n">snz</span><span class="o">*</span><span class="n">apnrz</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">dotnorm</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">pforce</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">papp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">arint</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w">      </span><span class="n">vforce</span><span class="o">=</span><span class="w"> </span><span class="n">pforce</span><span class="o">/</span><span class="n">denom</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">ijk</span><span class="p">).</span><span class="n">ge</span><span class="p">.</span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span></span></span></code></pre></div><p>如果当前网格的液体超过 50%，说明它足够“重”，能扛得住反冲力，直接跳到标号 8，不需要寻找邻居（inbr 保持为 ijk，即靠山是它自己）</p>
+<p>nff=6（下方是气体，表面朝下）。
 6   continue
-    if(aft(ijk).gt.em6) inbr=ijk+ii2  ! 检查上方 (Top)
-    vfac=delz(k+1)*rdz(k)
-* 逻辑：既然下面是气，那我就去上面 (ijk+ii2) 找液体邻居。
-* aft(ijk): Area Fraction Top。检查通向上方邻居的门是不是开着的（没有被障碍物挡住）。
-* inbr 更新：如果通畅，将 inbr 设为上方邻居的索引。
-
-vfac (Volume Factor):
-* 公式：delz(邻居) * rdz(当前)。即 $\frac{\Delta z_{neighbor}}{\Delta z_{current}}$。
-* 作用：如果使用了非均匀网格（邻居网格很大，当前网格很小），计算体积时需要修正比例。
-
-8   continue
-    cvol=vf(ijk)*delx(i)*dely(j)*delz(k)  ! 当前流体体积
-    if(inbr.ne.ijk) then
-        cvoln=cvol*vfac*vf(inbr)/vf(ijk)  ! 邻居流体体积 (近似推算)
-    else
-        cvoln=cvol                        ! 没有邻居，只算自己
-    endif
-    denom=cvol+cvoln                      ! 总分母 (总承力体积)
-把你自己和邻居的体积加起来&lt;br&gt;
-```fortran
-call srfnorm(...) ! 获取表面法向和面积 
-sar pforce = papp * arint(ijk)
-</code></pre><p>计算总压力<br></p>
+if(aft(ijk).gt.em6) inbr=ijk+ii2  ! 检查上方 (Top)
+vfac=delz(k+1)*rdz(k)</p>
+<ul>
+<li>逻辑：既然下面是气，那我就去上面 (ijk+ii2) 找液体邻居。</li>
+<li>aft(ijk): Area Fraction Top。检查通向上方邻居的门是不是开着的（没有被障碍物挡住）。</li>
+<li>inbr 更新：如果通畅，将 inbr 设为上方邻居的索引。</li>
+</ul>
+<p>vfac (Volume Factor):</p>
+<ul>
+<li>公式：delz(邻居) * rdz(当前)。即 $\frac{\Delta z_{neighbor}}{\Delta z_{current}}$。</li>
+<li>作用：如果使用了非均匀网格（邻居网格很大，当前网格很小），计算体积时需要修正比例。</li>
+</ul>
+<p>8   continue
+cvol=vf(ijk)*delx(i)<em>dely(j)<em>delz(k)  ! 当前流体体积
+if(inbr.ne.ijk) then
+cvoln=cvol</em>vfac</em>vf(inbr)/vf(ijk)  ! 邻居流体体积 (近似推算)
+else
+cvoln=cvol                        ! 没有邻居，只算自己
+endif
+denom=cvol+cvoln                      ! 总分母 (总承力体积)
+把你自己和邻居的体积加起来<br></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="k">call</span><span class="w"> </span><span class="n">srfnorm</span><span class="p">(...)</span><span class="w"> </span><span class="c">! 获取表面法向和面积 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="n">sar</span><span class="w"> </span><span class="n">pforce</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">papp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">arint</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>计算总压力<br></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="n">f_gas1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">rho_eff1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">ijk</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rho_1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f_gas1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rho_gas</span><span class="w">
 </span></span></span></code></pre></div><p>计算混合密度<br></p>
