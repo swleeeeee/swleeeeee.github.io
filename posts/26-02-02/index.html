@@ -119,7 +119,7 @@ table .katex {
     
       <a href="/categories/additively-manufacturing">additively manufacturing</a>
   </strong>
-  <span> • 2185 words</span>
+  <span> • 2197 words</span>
   
   
     <div>
@@ -127,15 +127,30 @@ table .katex {
       
         <a href="/tags/simulations">Simulations</a>, 
         <a href="/tags/fortran">fortran</a>, 
-        <a href="/tags/secondary-develpoment">Secondary develpoment</a>, 
+        <a href="/tags/secondary-develpoment">secondary develpoment</a>, 
         <a href="/tags/flow-3d">Flow-3D</a>
     </div>
   
 </div>
 
-      <div class="content"><h1 id="参考资料">参考资料</h1>
+      <div class="content"><h2 id="目录">目录</h2>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+<li><a href="#%E7%AE%97%E4%BE%8B%E7%89%B9%E5%BE%81%E4%B8%8E%E5%B1%80%E9%99%90%E6%80%A7">算例特征与局限性</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E5%A2%9E%E9%87%8F%E6%AD%A5%E5%86%85vof%E7%95%8C%E9%9D%A2%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%B5%81%E7%A8%8B">一个时间增量步内VOF界面循环的流程</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E8%AE%BE%E7%BD%AE">文件夹设置</a></li>
+<li><a href="#vof%E6%96%B9%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3">VOF方法的理解</a></li>
+<li><a href="#forcal-f%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">forcal.F代码结构</a></li>
+<li><a href="#forcal-f%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3">forcal.F代码详解</a></li>
+<li><a href="#forcal-f%E4%BB%A3%E7%A0%81%E5%AE%8C%E6%95%B4">forcal.F代码完整</a></li>
+<li><a href="#%E9%99%84%E8%A1%A8">附表</a></li>
+</ul>
+<hr>
+<p><span id="参考资料"></span></p>
+<h1 id="参考资料">参考资料</h1>
 <p>Flow-3D Help/customization
 算例</p>
+<p><span id="算例特征与局限性"></span></p>
 <h1 id="算例特征与局限性">算例特征与局限性</h1>
 <ul>
 <li><input disabled="" type="checkbox"> 光线追踪Y/N</li>
@@ -151,6 +166,7 @@ table .katex {
 <li><input checked="" disabled="" type="checkbox"> 蒸发（蒸汽反冲压力）</li>
 </ul>
 <p>铺粉过程没有模拟;粉末在flow3D的模拟中是固定的，流动性也没有模拟</p>
+<p><span id="一个时间增量步内vof界面循环的流程"></span></p>
 <h1 id="一个时间增量步内vof界面循环的流程">一个时间增量步内VOF界面循环的流程</h1>
 <p>A[时间步开始 t] <br>
 B[1. 准备速度场 (动量方程)] （求解器计算重力、粘性力、压力梯度） <br>
@@ -165,6 +181,7 @@ J(激光加热)调用 qsadd.F <br>
 K[时间步结束 t + dt] <br></p>
 <p>Question：物理直觉上，应该是物理直觉（热 —力 — 运动），即先计算热力再进行VOF运输，那为什么热相关的源项计算是放在循环的尾部，而动力相关的源项是放在循环的开头（力-运动-热）？虽然顺序上依然是连贯的，调整时间步的顺序有什么非做不可的点？<br>
 Answer：FLOW-3D 的时间步循环（SOLA-VOF 算法）设置；如果先计算热，各个旧位置网格获能—根据动量方程求解进行VOF运输与界面重构—得到新位置网格，而储存能量的网格与流体体积分数的网格储存信息是分离的，这会导致储存能量信息的旧网格与储存物质信息的新网格不是映射在相同的模型里，储存物质信息的新网格是真实的，而储存能量信息的旧网格没有及时更新被留在原来的网格里，会导致下个计算步错误。</p>
+<p><span id="文件夹设置"></span></p>
 <h1 id="文件夹设置">文件夹设置</h1>
 <p>Additional common blocks, modules or parameters may be defined in new comdeck files, which may be included in source files as needed.<br></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="o">--</span><span class="w">          </span><span class="n">double</span><span class="o">--</span><span class="w">     </span><span class="n">hydr3d</span><span class="w">
@@ -183,6 +200,7 @@ source —— 存放所有可供用户修改的 Fortran 源代码文件。<br>
 prehyd —— 存放用户编译后生成的自定义版本执行文件。<br>
 需要关注的文件：<br>
 算例的主要修改文件：orcal：反冲力//qsadd.F 添加激光热源（更新温度）//heatfl.F 蒸发热损失（修正温度）</p>
+<p><span id="vof方法的理解"></span></p>
 <h1 id="vof方法的理解">VOF方法的理解</h1>
 <p>FLOW-3D 如何用 $F$ (Fluid Fraction) 和 $NF$ (Normal Flag) 来重构自由表面</p>
 <p>1.F值<br>
@@ -214,12 +232,14 @@ $$n_x x + n_y y + n_z z = \alpha$$</p>
 </ul>
 <p>4.VOF法重构表面的网格连续性问题：</p>
 <p>于梯度计算的微小误差或网格分辨率的限制，网格 A 的平面边缘和网格 B 的平面边缘在交界处通常对不齐。但是VOF 方法重构的表面虽然是 几何不连续的，但在 有限体积法（FVM） 的框架下是 物理守恒 的。求解器不关心 A 的平面和 B 的平面是否在几何上连在一起，它只关心有多少体积 ($Vol$) 穿过了网格的交界面。虽然重构出的面是分段平面的，但求解器会通过插值算法拟合出一个光滑的曲率场来计算压力跳变。</p>
+<p><span id="forcal-f代码结构"></span></p>
 <h1 id="forcalf代码结构">forcal.F代码结构<br></h1>
 <p>Use-<br>
 include-<br>
 变量字典与代码模版（已注释）-<br>
 初始化清零-<br>
 大循环{筛选出界面上的网格-确定nf-计算反冲压力-计算总作用力-根据液体与气体密度分配计算xyz三个方向的力模长}</p>
+<p><span id="forcal-f代码详解"></span></p>
 <h1 id="forcalf代码详解">forcal.F代码详解</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fortran" data-lang="fortran"><span class="line"><span class="cl"><span class="n">c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">use</span><span class="w"> </span><span class="n">mblock_module</span><span class="w">
@@ -514,6 +534,7 @@ denom=cvol+cvoln                      ! 总分母 (总承力体积)
 pforce =  papp * arint(ijk)</p>
 <pre tabindex="0"><code class="language-，是一个标量力。" data-lang="，是一个标量力。">
 
+&lt;span id=&#34;forcal-f代码完整&#34;&gt;&lt;/span&gt;
 # forcal.F代码完整
   subroutine forcal
 c
@@ -677,7 +698,8 @@ c添加一个稳定因子：密度相关：氩气密度为空气的1.4倍，1.29
  1000 continue    
       return
       end
-</code></pre><h1 id="附表">附表</h1>
+</code></pre><p><span id="附表"></span></p>
+<h1 id="附表">附表</h1>
 <table>
   <thead>
       <tr>
